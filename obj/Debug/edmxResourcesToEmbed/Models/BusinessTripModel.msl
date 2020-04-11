@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="businesstripModelStoreContainer" CdmEntityContainer="businesstripEntities">
+    <EntitySetMapping Name="app_fundation">
+      <EntityTypeMapping TypeName="businesstripModel.app_fundation">
+        <MappingFragment StoreEntitySet="app_fundation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="application_Id" ColumnName="application_Id" />
+          <ScalarProperty Name="fundation_Id" ColumnName="fundation_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_transport">
+      <EntityTypeMapping TypeName="businesstripModel.app_transport">
+        <MappingFragment StoreEntitySet="app_transport">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="application_Id" ColumnName="application_Id" />
+          <ScalarProperty Name="transport_Id" ColumnName="transport_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="application">
+      <EntityTypeMapping TypeName="businesstripModel.application">
+        <MappingFragment StoreEntitySet="application">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="main_place_of_work" ColumnName="main_place_of_work" />
+          <ScalarProperty Name="position_in_combination" ColumnName="position_in_combination" />
+          <ScalarProperty Name="type_Id" ColumnName="type_Id" />
+          <ScalarProperty Name="purpose_Id" ColumnName="purpose_Id" />
+          <ScalarProperty Name="saving_salary_Id" ColumnName="saving_salary_Id" />
+          <ScalarProperty Name="trip_city" ColumnName="trip_city" />
+          <ScalarProperty Name="trip_country" ColumnName="trip_country" />
+          <ScalarProperty Name="institution_Id" ColumnName="institution_Id" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="itinerary" ColumnName="itinerary" />
+          <ScalarProperty Name="app_transport_Id" ColumnName="app_transport_Id" />
+          <ScalarProperty Name="payment_Id" ColumnName="payment_Id" />
+          <ScalarProperty Name="app_fundation_Id" ColumnName="app_fundation_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="foundation">
+      <EntityTypeMapping TypeName="businesstripModel.foundation">
+        <MappingFragment StoreEntitySet="foundation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="trip_foundation" ColumnName="trip_foundation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="institution">
+      <EntityTypeMapping TypeName="businesstripModel.institution">
+        <MappingFragment StoreEntitySet="institution">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="institution1" ColumnName="institution" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payment">
+      <EntityTypeMapping TypeName="businesstripModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="expenses_payment" ColumnName="expenses_payment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purpose">
+      <EntityTypeMapping TypeName="businesstripModel.purpose">
+        <MappingFragment StoreEntitySet="purpose">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="purpose1" ColumnName="purpose" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="role">
+      <EntityTypeMapping TypeName="businesstripModel.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="role1" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="saving_salary">
+      <EntityTypeMapping TypeName="businesstripModel.saving_salary">
+        <MappingFragment StoreEntitySet="saving_salary">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="saving_salary1" ColumnName="saving_salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transport">
+      <EntityTypeMapping TypeName="businesstripModel.transport">
+        <MappingFragment StoreEntitySet="transport">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="transport1" ColumnName="transport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="type">
+      <EntityTypeMapping TypeName="businesstripModel.type">
+        <MappingFragment StoreEntitySet="type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type_of_trip" ColumnName="type_of_trip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="businesstripModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="role_Id" ColumnName="role_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

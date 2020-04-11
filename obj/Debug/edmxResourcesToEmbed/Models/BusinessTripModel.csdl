@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="businesstripModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="app_fundation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="application_Id" Type="Int32" Nullable="false" />
+    <Property Name="fundation_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="application" Relationship="Self.FK_app_fundation_application" FromRole="app_fundation" ToRole="application" />
+    <NavigationProperty Name="foundation" Relationship="Self.FK_app_fundation_foundation" FromRole="app_fundation" ToRole="foundation" />
+    <NavigationProperty Name="application1" Relationship="Self.FK_application_app_fundation" FromRole="app_fundation" ToRole="application" />
+  </EntityType>
+  <EntityType Name="app_transport">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="application_Id" Type="Int32" Nullable="false" />
+    <Property Name="transport_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="application" Relationship="Self.FK_application_app_transport" FromRole="app_transport" ToRole="application" />
+    <NavigationProperty Name="application1" Relationship="Self.FK_app_transport_application" FromRole="app_transport" ToRole="application" />
+    <NavigationProperty Name="transport" Relationship="Self.FK_app_transport_transport" FromRole="app_transport" ToRole="transport" />
+  </EntityType>
+  <EntityType Name="application">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="user_Id" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fullname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="main_place_of_work" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="position_in_combination" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="type_Id" Type="Int32" Nullable="false" />
+    <Property Name="purpose_Id" Type="Int32" Nullable="false" />
+    <Property Name="saving_salary_Id" Type="Int32" Nullable="false" />
+    <Property Name="trip_city" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="trip_country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="institution_Id" Type="Int32" Nullable="false" />
+    <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="end_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="itinerary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="app_transport_Id" Type="Int32" />
+    <Property Name="payment_Id" Type="Int32" Nullable="false" />
+    <Property Name="app_fundation_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="app_fundation" Relationship="Self.FK_app_fundation_application" FromRole="application" ToRole="app_fundation" />
+    <NavigationProperty Name="app_fundation1" Relationship="Self.FK_application_app_fundation" FromRole="application" ToRole="app_fundation" />
+    <NavigationProperty Name="app_transport" Relationship="Self.FK_application_app_transport" FromRole="application" ToRole="app_transport" />
+    <NavigationProperty Name="app_transport1" Relationship="Self.FK_app_transport_application" FromRole="application" ToRole="app_transport" />
+    <NavigationProperty Name="institution" Relationship="Self.FK_application_institution" FromRole="application" ToRole="institution" />
+    <NavigationProperty Name="payment" Relationship="Self.FK_application_payment" FromRole="application" ToRole="payment" />
+    <NavigationProperty Name="purpose" Relationship="Self.FK_application_purpose" FromRole="application" ToRole="purpose" />
+    <NavigationProperty Name="saving_salary" Relationship="Self.FK_application_saving_salary" FromRole="application" ToRole="saving_salary" />
+    <NavigationProperty Name="type" Relationship="Self.FK_application_type" FromRole="application" ToRole="type" />
+    <NavigationProperty Name="user" Relationship="Self.FK_application_user" FromRole="application" ToRole="user" />
+  </EntityType>
+  <EntityType Name="foundation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="trip_foundation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="app_fundation" Relationship="Self.FK_app_fundation_foundation" FromRole="foundation" ToRole="app_fundation" />
+  </EntityType>
+  <EntityType Name="institution">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="institution1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="application" Relationship="Self.FK_application_institution" FromRole="institution" ToRole="application" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="expenses_payment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="application" Relationship="Self.FK_application_payment" FromRole="payment" ToRole="application" />
+  </EntityType>
+  <EntityType Name="purpose">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="purpose1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="application" Relationship="Self.FK_application_purpose" FromRole="purpose" ToRole="application" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="role1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_user_role" FromRole="role" ToRole="user" />
+  </EntityType>
+  <EntityType Name="saving_salary">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="saving_salary1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="application" Relationship="Self.FK_application_saving_salary" FromRole="saving_salary" ToRole="application" />
+  </EntityType>
+  <EntityType Name="transport">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="transport1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="app_transport" Relationship="Self.FK_app_transport_transport" FromRole="transport" ToRole="app_transport" />
+  </EntityType>
+  <EntityType Name="type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="type_of_trip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="application" Relationship="Self.FK_application_type" FromRole="type" ToRole="application" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="role_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="application" Relationship="Self.FK_application_user" FromRole="user" ToRole="application" />
+    <NavigationProperty Name="role" Relationship="Self.FK_user_role" FromRole="user" ToRole="role" />
+  </EntityType>
+  <Association Name="FK_app_fundation_application">
+    <End Role="application" Type="Self.application" Multiplicity="1" />
+    <End Role="app_fundation" Type="Self.app_fundation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="application">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_fundation">
+        <PropertyRef Name="application_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_fundation_foundation">
+    <End Role="foundation" Type="Self.foundation" Multiplicity="1" />
+    <End Role="app_fundation" Type="Self.app_fundation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="foundation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_fundation">
+        <PropertyRef Name="fundation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_app_fundation">
+    <End Role="app_fundation" Type="Self.app_fundation" Multiplicity="1" />
+    <End Role="application" Type="Self.application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_fundation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="application">
+        <PropertyRef Name="app_fundation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_app_transport">
+    <End Role="app_transport" Type="Self.app_transport" Multiplicity="0..1" />
+    <End Role="application" Type="Self.application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_transport">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="application">
+        <PropertyRef Name="app_transport_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_transport_application">
+    <End Role="application" Type="Self.application" Multiplicity="1" />
+    <End Role="app_transport" Type="Self.app_transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="application">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_transport">
+        <PropertyRef Name="application_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_transport_transport">
+    <End Role="transport" Type="Self.transport" Multiplicity="1" />
+    <End Role="app_transport" Type="Self.app_transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transport">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_transport">
+        <PropertyRef Name="transport_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_institution">
+    <End Role="institution" Type="Self.institution" Multiplicity="1" />
+    <End Role="application" Type="Self.application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="institution">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="application">
+        <PropertyRef Name="institution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_payment">
+    <End Role="payment" Type="Self.payment" Multiplicity="1" />
+    <End Role="application" Type="Self.application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="application">
+        <PropertyRef Name="payment_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_purpose">
+    <End Role="purpose" Type="Self.purpose" Multiplicity="1" />
+    <End Role="application" Type="Self.application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="purpose">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="application">
+        <PropertyRef Name="purpose_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_saving_salary">
+    <End Role="saving_salary" Type="Self.saving_salary" Multiplicity="1" />
+    <End Role="application" Type="Self.application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="saving_salary">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="application">
+        <PropertyRef Name="saving_salary_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_type">
+    <End Role="type" Type="Self.type" Multiplicity="1" />
+    <End Role="application" Type="Self.application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="application">
+        <PropertyRef Name="type_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="application" Type="Self.application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="application">
+        <PropertyRef Name="user_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_role">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="businesstripEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="app_fundation" EntityType="Self.app_fundation" />
+    <EntitySet Name="app_transport" EntityType="Self.app_transport" />
+    <EntitySet Name="application" EntityType="Self.application" />
+    <EntitySet Name="foundation" EntityType="Self.foundation" />
+    <EntitySet Name="institution" EntityType="Self.institution" />
+    <EntitySet Name="payment" EntityType="Self.payment" />
+    <EntitySet Name="purpose" EntityType="Self.purpose" />
+    <EntitySet Name="role" EntityType="Self.role" />
+    <EntitySet Name="saving_salary" EntityType="Self.saving_salary" />
+    <EntitySet Name="transport" EntityType="Self.transport" />
+    <EntitySet Name="type" EntityType="Self.type" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <AssociationSet Name="FK_app_fundation_application" Association="Self.FK_app_fundation_application">
+      <End Role="application" EntitySet="application" />
+      <End Role="app_fundation" EntitySet="app_fundation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_fundation_foundation" Association="Self.FK_app_fundation_foundation">
+      <End Role="foundation" EntitySet="foundation" />
+      <End Role="app_fundation" EntitySet="app_fundation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_app_fundation" Association="Self.FK_application_app_fundation">
+      <End Role="app_fundation" EntitySet="app_fundation" />
+      <End Role="application" EntitySet="application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_app_transport" Association="Self.FK_application_app_transport">
+      <End Role="app_transport" EntitySet="app_transport" />
+      <End Role="application" EntitySet="application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_transport_application" Association="Self.FK_app_transport_application">
+      <End Role="application" EntitySet="application" />
+      <End Role="app_transport" EntitySet="app_transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_transport_transport" Association="Self.FK_app_transport_transport">
+      <End Role="transport" EntitySet="transport" />
+      <End Role="app_transport" EntitySet="app_transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_institution" Association="Self.FK_application_institution">
+      <End Role="institution" EntitySet="institution" />
+      <End Role="application" EntitySet="application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_payment" Association="Self.FK_application_payment">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="application" EntitySet="application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_purpose" Association="Self.FK_application_purpose">
+      <End Role="purpose" EntitySet="purpose" />
+      <End Role="application" EntitySet="application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_saving_salary" Association="Self.FK_application_saving_salary">
+      <End Role="saving_salary" EntitySet="saving_salary" />
+      <End Role="application" EntitySet="application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_type" Association="Self.FK_application_type">
+      <End Role="type" EntitySet="type" />
+      <End Role="application" EntitySet="application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_user" Association="Self.FK_application_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="application" EntitySet="application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_role" Association="Self.FK_user_role">
+      <End Role="role" EntitySet="role" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
