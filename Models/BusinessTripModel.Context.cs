@@ -10,14 +10,18 @@
 namespace BusinessTrip.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using System.Linq;
+
     public partial class businesstripEntities : DbContext
     {
         public businesstripEntities()
             : base("name=businesstripEntities")
         {
+            //Database.SetInitializer<businesstripEntities>(new UniDBInitializer<businesstripEntities>());
+            Initialize();
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -37,5 +41,206 @@ namespace BusinessTrip.Models
         public virtual DbSet<transport> transport { get; set; }
         public virtual DbSet<type> type { get; set; }
         public virtual DbSet<user> user { get; set; }
+
+        public void Initialize()
+        {
+            var context = this;
+            if (!context.role.Any())
+            {
+                context.role.Add(new role { id = 1, role1 = "admin" });
+                context.role.Add(new role { id = 2, role1 = "user" });
+                context.SaveChanges();
+            }
+
+            if (!context.type.Any())
+            {
+                context.type.Add(new type { id = 1, type_of_trip = "Відрядження по Україні" });
+                context.type.Add(new type { id = 2, type_of_trip = "Відрядження закордон" });
+                context.SaveChanges();
+            }
+
+            if (!context.purpose.Any())
+            {
+                context.purpose.Add(new purpose
+                {
+                    id = 1,
+                    purpose1 = "З метою реалізації права на академічну мобільність відповідно до Постанови Кабінету Міністрів України від 12.08.2019 р. №579"
+                });
+                context.purpose.Add(new purpose { id = 2, purpose1 = "проходження стажування" });
+                context.purpose.Add(new purpose { id = 3, purpose1 = "для викладу лекційного курсу" });
+                context.purpose.Add(new purpose { id = 4, purpose1 = "участь в проектній зустрічі" });
+                context.purpose.Add(new purpose { id = 5, purpose1 = "участь у тренінгу" });
+                context.SaveChanges();
+            }
+
+            if (!context.saving_salary.Any())
+            {
+                context.saving_salary.Add(new saving_salary
+                {
+                    id = 1,
+                    saving_salary1 = "зі збереженням середньої зарплати за основним місце праці"
+                });
+                context.saving_salary.Add(new saving_salary
+                {
+                    id = 2,
+                    saving_salary1 = "зі збереженням середньої зарплати за основним місцем праці та за сумісництвом"
+                });
+                context.saving_salary.Add(new saving_salary
+                {
+                    id = 3,
+                    saving_salary1 = "без збереження заробітної плати (тривалість відрядження більше 10-ти днів)"
+                });
+                context.SaveChanges();
+
+                if (!context.institution.Any())
+                {
+                    context.institution.Add(new institution { id = 1, institution1 = "Міністерство освіти і науки України" });
+                    context.SaveChanges();
+                }
+
+                if (!context.transport.Any())
+                {
+                    context.transport.Add(new transport { id = 1, transport1 = "Залізничий" });
+                    context.transport.Add(new transport { id = 2, transport1 = "Автомобільний" });
+                    context.transport.Add(new transport { id = 3, transport1 = "Літак" });
+                    context.SaveChanges();
+                }
+
+                if (!context.payment.Any())
+                {
+                    context.payment.Add(new payment
+                    {
+                        id = 1,
+                        expenses_payment = "за власний кошт/ за рахунок приймаючої сторони"
+                    });
+                    context.payment.Add(new payment
+                    {
+                        id = 2,
+                        expenses_payment = "витрати на проїзд, добові за рахунок коштів факультету відповідно до кошторису"
+                    });
+                    context.payment.Add(new payment
+                    {
+                        id = 3,
+                        expenses_payment = "витрати на проїзд, добові за рахунок коштів університету відповідно до кошторису"
+                    });
+                    context.SaveChanges();
+                }
+
+                if (!context.foundation.Any())
+                {
+                    context.foundation.Add(new foundation
+                    {
+                        id = 1,
+                        trip_foundation = "запрошення"
+                    });
+                    context.foundation.Add(new foundation
+                    {
+                        id = 2,
+                        trip_foundation = "витяг з протоколу засідання Вченої Ради факультету"
+                    });
+                    context.foundation.Add(new foundation
+                    {
+                        id = 3,
+                        trip_foundation = "рапорт проректора"
+                    });
+                    context.SaveChanges();
+                }
+            }
+        }
+        private class UniDBInitializer<T>: CreateDatabaseIfNotExists<businesstripEntities>
+        {
+            protected override void Seed(businesstripEntities context)
+            {
+                if (!context.role.Any())
+                {
+                    context.role.Add(new role { id = 1, role1 = "admin" });
+                    context.role.Add(new role { id = 2, role1 = "user" });
+                    context.SaveChanges();
+                }
+
+                if (!context.type.Any())
+                {
+                    context.type.Add(new type { id = 1, type_of_trip = "Відрядження по Україні" });
+                    context.type.Add(new type { id = 2, type_of_trip = "Відрядження закордон" });
+                    context.SaveChanges();
+                }
+
+                if (!context.purpose.Any())
+                {
+                    context.purpose.Add(new purpose { id = 1,
+                        purpose1 = "З метою реалізації права на академічну мобільність відповідно до Постанови Кабінету Міністрів України від 12.08.2019 р. №579" });
+                    context.purpose.Add(new purpose { id = 2, purpose1 = "проходження стажування" });
+                    context.purpose.Add(new purpose { id = 3, purpose1 = "для викладу лекційного курсу" });
+                    context.purpose.Add(new purpose { id = 4, purpose1 = "участь в проектній зустрічі" });
+                    context.purpose.Add(new purpose { id = 5, purpose1 = "участь у тренінгу" });
+                    context.SaveChanges();
+                }
+
+                if (!context.saving_salary.Any())
+                {
+                    context.saving_salary.Add(new saving_salary
+                    {
+                        id = 1,
+                        saving_salary1 = "зі збереженням середньої зарплати за основним місце праці"
+                    });
+                    context.saving_salary.Add(new saving_salary { id = 2, 
+                        saving_salary1 = "зі збереженням середньої зарплати за основним місцем праці та за сумісництвом"
+                    });
+                    context.saving_salary.Add(new saving_salary
+                    {
+                        id = 3,
+                        saving_salary1 = "без збереження заробітної плати (тривалість відрядження більше 10-ти днів)"
+                    });
+                    context.SaveChanges();
+
+                    if (!context.institution.Any())
+                    {
+                        context.institution.Add(new institution { id = 1, institution1 = "Міністерство освіти і науки України" });
+                        context.SaveChanges();
+                    }
+
+                    if (!context.transport.Any())
+                    {
+                        context.transport.Add(new transport { id = 1, transport1 = "Залізничий" });
+                        context.transport.Add(new transport { id = 2, transport1 = "Автомобільний" });
+                        context.transport.Add(new transport { id = 3, transport1 = "Літак" });
+                        context.SaveChanges();
+                    }
+
+                    if (!context.payment.Any())
+                    {
+                        context.payment.Add(new payment { id = 1, 
+                            expenses_payment = "за власний кошт/ за рахунок приймаючої сторони" });
+                        context.payment.Add(new payment { id = 2, 
+                            expenses_payment = "витрати на проїзд, добові за рахунок коштів факультету відповідно до кошторису"
+                        });
+                        context.payment.Add(new payment { id = 3, 
+                            expenses_payment = "витрати на проїзд, добові за рахунок коштів університету відповідно до кошторису"
+                        });
+                        context.SaveChanges();
+                    }
+
+                    if (!context.foundation.Any())
+                    {
+                        context.foundation.Add(new foundation
+                        {
+                            id = 1,
+                            trip_foundation = "запрошення"
+                        });
+                        context.foundation.Add(new foundation
+                        {
+                            id = 2,
+                            trip_foundation = "витяг з протоколу засідання Вченої Ради факультету"
+                        });
+                        context.foundation.Add(new foundation
+                        {
+                            id = 3,
+                            trip_foundation = "рапорт проректора"
+                        });
+                        context.SaveChanges();
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+    <div>
+        <h1>Initial data in database</h1>
+        <hr>
+        <h1>types</h1>
+        @foreach (BusinessTrip.Models.type t in ViewBag.types)
+        {<h4>@t.type_of_trip</h4>}
+
+        <h1>purpose</h1>
+        @foreach (BusinessTrip.Models.purpose t in ViewBag.purposes)
+        {<h4>@t.purpose1</h4>}
+
+        <h1>role</h1>
+        @foreach (BusinessTrip.Models.role t in ViewBag.roles)
+        {<h4>@t.role1</h4>}
+
+        <h1>Saving salary</h1>
+        @foreach (BusinessTrip.Models.saving_salary t in ViewBag.saving_salary)
+        {<h4>@t.saving_salary1</h4>}
+
+        <h1>institution</h1>
+        @foreach (BusinessTrip.Models.institution t in ViewBag.institution)
+        {<h4>@t.institution1</h4>}
+
+        <h1>transport</h1>
+        @foreach (BusinessTrip.Models.transport t in ViewBag.transport)
+        {<h4>@t.transport1</h4>}
+
+        <h1>payment</h1>
+        @foreach (BusinessTrip.Models.payment t in ViewBag.payment)
+        {<h4>@t.expenses_payment</h4>}
+
+    <h1>foundation</h1>
+        @foreach (BusinessTrip.Models.foundation t in ViewBag.foundation)
+        {<h4>@t.trip_foundation</h4>}
+    </div>
