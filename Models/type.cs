@@ -19,13 +19,7 @@ namespace BusinessTrip.Models
         {
             this.application = new HashSet<application>();
         }
-
-        public type(int _id, string _type_of_trip)
-        {
-            id = _id; 
-            type_of_trip = _type_of_trip;
-        }
-
+    
         public int id { get; set; }
         public string type_of_trip { get; set; }
     

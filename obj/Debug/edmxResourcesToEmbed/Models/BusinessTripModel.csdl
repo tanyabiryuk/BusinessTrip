@@ -131,6 +131,7 @@
     <Property Name="role_Id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="application" Relationship="Self.FK_application_user" FromRole="user" ToRole="application" />
     <NavigationProperty Name="role" Relationship="Self.FK_user_role" FromRole="user" ToRole="role" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_app_fundation_application">
     <End Role="application" Type="Self.application" Multiplicity="1" />

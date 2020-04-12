@@ -110,6 +110,7 @@
     <EntitySetMapping Name="user">
       <EntityTypeMapping TypeName="businesstripModel.user">
         <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="last_name" ColumnName="last_name" />
           <ScalarProperty Name="first_name" ColumnName="first_name" />

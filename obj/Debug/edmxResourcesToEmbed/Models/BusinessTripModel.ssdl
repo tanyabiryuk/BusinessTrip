@@ -105,21 +105,12 @@
     <Property Name="patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="role_Id" Type="int" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Association Name="FK_app_fundation_application">
-    <End Role="application" Type="Self.application" Multiplicity="1" />
-    <End Role="app_fundation" Type="Self.app_fundation" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="application">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="app_fundation">
-        <PropertyRef Name="application_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_app_fundation_foundation">
-    <End Role="foundation" Type="Self.foundation" Multiplicity="1" />
+    <End Role="foundation" Type="Self.foundation" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="app_fundation" Type="Self.app_fundation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="foundation">
@@ -142,7 +133,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_application_app-transport">
+  <Association Name="FK_application_app_transport">
     <End Role="app_transport" Type="Self.app_transport" Multiplicity="0..1" />
     <End Role="application" Type="Self.application" Multiplicity="*" />
     <ReferentialConstraint>
@@ -155,7 +146,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_application_institution">
-    <End Role="institution" Type="Self.institution" Multiplicity="1" />
+    <End Role="institution" Type="Self.institution" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="application" Type="Self.application" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="institution">
@@ -167,7 +160,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_application_payment">
-    <End Role="payment" Type="Self.payment" Multiplicity="1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="application" Type="Self.application" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="payment">
@@ -179,7 +174,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_application_purpose">
-    <End Role="purpose" Type="Self.purpose" Multiplicity="1" />
+    <End Role="purpose" Type="Self.purpose" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="application" Type="Self.application" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="purpose">
@@ -191,7 +188,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_application_saving_salary">
-    <End Role="saving_salary" Type="Self.saving_salary" Multiplicity="1" />
+    <End Role="saving_salary" Type="Self.saving_salary" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="application" Type="Self.application" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="saving_salary">
@@ -203,7 +202,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_application_type">
-    <End Role="type" Type="Self.type" Multiplicity="1" />
+    <End Role="type" Type="Self.type" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="application" Type="Self.application" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="type">
@@ -215,7 +216,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_application_user">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="application" Type="Self.application" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="user">
@@ -226,20 +229,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_app-transport_application">
-    <End Role="application" Type="Self.application" Multiplicity="1" />
-    <End Role="app_transport" Type="Self.app_transport" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="application">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="app_transport">
-        <PropertyRef Name="application_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_app-transport_transport">
-    <End Role="transport" Type="Self.transport" Multiplicity="1" />
+    <End Role="transport" Type="Self.transport" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="app_transport" Type="Self.app_transport" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="transport">
@@ -251,7 +244,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_user_role">
-    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="role" Type="Self.role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="user" Type="Self.user" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="role">
@@ -275,10 +270,6 @@
     <EntitySet Name="transport" EntityType="Self.transport" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="type" EntityType="Self.type" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_app_fundation_application" Association="Self.FK_app_fundation_application">
-      <End Role="application" EntitySet="application" />
-      <End Role="app_fundation" EntitySet="app_fundation" />
-    </AssociationSet>
     <AssociationSet Name="FK_app_fundation_foundation" Association="Self.FK_app_fundation_foundation">
       <End Role="foundation" EntitySet="foundation" />
       <End Role="app_fundation" EntitySet="app_fundation" />
@@ -287,7 +278,7 @@
       <End Role="app_fundation" EntitySet="app_fundation" />
       <End Role="application" EntitySet="application" />
     </AssociationSet>
-    <AssociationSet Name="FK_application_app-transport" Association="Self.FK_application_app-transport">
+    <AssociationSet Name="FK_application_app_transport" Association="Self.FK_application_app_transport">
       <End Role="app_transport" EntitySet="app_transport" />
       <End Role="application" EntitySet="application" />
     </AssociationSet>
@@ -314,10 +305,6 @@
     <AssociationSet Name="FK_application_user" Association="Self.FK_application_user">
       <End Role="user" EntitySet="user" />
       <End Role="application" EntitySet="application" />
-    </AssociationSet>
-    <AssociationSet Name="FK_app-transport_application" Association="Self.FK_app-transport_application">
-      <End Role="application" EntitySet="application" />
-      <End Role="app_transport" EntitySet="app_transport" />
     </AssociationSet>
     <AssociationSet Name="FK_app-transport_transport" Association="Self.FK_app-transport_transport">
       <End Role="transport" EntitySet="transport" />
