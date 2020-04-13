@@ -5,14 +5,14 @@
 }
 <head>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    
+
 </head>
 
-    <h2>Заявка на відрядження</h2>
+<h1>Заявка на відрядження</h1>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
-    
+
 <div>
     <h4></h4>
     <hr />
@@ -26,6 +26,8 @@
         </div>
     </div>
 
+    <br /><hr />
+
     <div class="form-group">
         @Html.LabelFor(model => model.fullname, "1. Ваше прізвище, ім'я, по- батькові (в родовому відмінку)")
         <div>
@@ -33,6 +35,8 @@
             @Html.ValidationMessageFor(model => model.fullname, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <br /><hr />
 
     <div class="form-group">
         @Html.LabelFor(model => model.main_place_of_work, "2.Вкажіть підрозділ та посаду за основним місцем праці")
@@ -42,6 +46,8 @@
         </div>
     </div>
 
+    <br /><hr />
+
     <div class="form-group">
         @Html.LabelFor(model => model.position_in_combination, "3.Вкажіть відділ та посаду за сумісництвом (за наявності)")
         <div>
@@ -49,6 +55,8 @@
             @Html.ValidationMessageFor(model => model.position_in_combination, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <br /><hr />
 
     <div class="form-group">
         @Html.LabelFor(model => model.type_Id, "4. Вкажіть тип відрядження")
@@ -72,6 +80,8 @@
             </script>
         </div>
     </div>
+
+    <br /><hr />
 
     <div class="form-group">
         @Html.LabelFor(model => model.purpose_Id, "4. Вкажіть мету відрядження")
@@ -116,6 +126,8 @@
         </script>
     </div>
 
+    <br /><hr />
+
     <div class="form-group">
         @Html.LabelFor(model => model.saving_salary_Id, "5. Вкажіть вид збереження заробітної плати")
         <fieldset>
@@ -130,6 +142,8 @@
         </fieldset>
     </div>
 
+    <br /><hr />
+
     <div class="form-group">
         @Html.LabelFor(model => model.trip_city, "6. Вкажіть місто відрядження ")
         <div>
@@ -138,6 +152,8 @@
         </div>
     </div>
 
+    <br /><hr />
+
     <div class="form-group" id="country" style="display:none">
         @Html.LabelFor(model => model.trip_country, "7. Вкажіть країну відрядження (для закордонного відрядження)")
         <div>
@@ -145,6 +161,8 @@
             @Html.ValidationMessageFor(model => model.trip_country, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <br /><hr />
 
     <div class="form-group">
         @Html.LabelFor(model => model.institution_Id, "8. Вкажіть установу, куди відряджаєтесь")
@@ -171,6 +189,8 @@
         </script>
     </div>
 
+    <br /><hr />
+
     <div class="form-group">
         @Html.LabelFor(model => model.start_date, "9. Вкажіть дату початку відрядження")
         <div>
@@ -179,6 +199,8 @@
             @Html.ValidationMessageFor(model => model.start_date, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <br /><hr />
 
     <div class="form-group">
         @Html.LabelFor(model => model.start_date, "10. Вкажіть дату завершення відрядження")
@@ -189,6 +211,8 @@
         </div>
     </div>
 
+    <br /><hr />
+
     <div class="form-group" id="way" style="display:none">
         @Html.LabelFor(model => model.itinerary, "11. Вкажіть маршрут поїздки (для відряджень по Україні). Наприклад: Львів-Київ-Львів")
         <div class="col-md-10">
@@ -196,6 +220,8 @@
             @Html.ValidationMessageFor(model => model.itinerary, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <br /><hr />
 
     <div class="form-group" id="transport" style="display:none">
         @Html.LabelFor(model => model.app_transport_Id, "12. Вкажіть транспорт, яким будете подорожувати (для відряджень по Україні).")
@@ -220,6 +246,8 @@
             })
         </script>
     </div>
+
+    <br /><hr />
 
     <div class="form-group">
         @Html.LabelFor(model => model.payment_Id, "13. Вкажіть, як буде здійснюватись оплата видатків на відрядження")
@@ -253,6 +281,8 @@
         </div>
     </div>
 
+    <br /><hr />
+
     <div class="form-group">
         @Html.LabelFor(model => model.app_fundation_Id, "14. Вкажіть підставу відрядження ")
         <div>
@@ -277,6 +307,8 @@
         </script>
     </div>
 
+    <br /><hr />
+
     <div class="form-group">
         <label>16. Про зміни у суттєвих умовах відрядження (дострокового повернення, зміні дати повернення) повідомити працівників відділу кадрів в найкоротший термін на електронну пошту vk101dok@gmail.com *</label>
         <div>
@@ -284,6 +316,8 @@
             <label for="acceptCheckBox">Зобов'язуюсь повідомити</label><br>
         </div>
     </div>
+
+    <br /><hr />
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
