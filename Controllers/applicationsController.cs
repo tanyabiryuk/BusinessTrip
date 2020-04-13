@@ -12,12 +12,12 @@ namespace BusinessTrip.Controllers
 {
     public class applicationsController : Controller
     {
-        private businesstripEntities db = new businesstripEntities();
+        private businesstripContext db = new businesstripContext();
 
         // GET: applications
         public ActionResult Index()
         {
-            var application = db.application.Include(a => a.app_fundation1).Include(a => a.app_transport).Include(a => a.institution).Include(a => a.payment).Include(a => a.purpose).Include(a => a.saving_salary).Include(a => a.type).Include(a => a.user);
+            var application = db.application.Include(a => a.app_fundation).Include(a => a.app_transport).Include(a => a.user);
             return View(application.ToList());
         }
 
@@ -41,11 +41,6 @@ namespace BusinessTrip.Controllers
         {
             ViewBag.app_fundation_Id = new SelectList(db.app_fundation, "id", "id");
             ViewBag.app_transport_Id = new SelectList(db.app_transport, "id", "id");
-            ViewBag.institution_Id = new SelectList(db.institution, "id", "institution1");
-            ViewBag.payment_Id = new SelectList(db.payment, "id", "expenses_payment");
-            ViewBag.purpose_Id = new SelectList(db.purpose, "id", "purpose1");
-            ViewBag.saving_salary_Id = new SelectList(db.saving_salary, "id", "saving_salary1");
-            ViewBag.type_Id = new SelectList(db.type, "id", "type_of_trip");
             ViewBag.user_Id = new SelectList(db.user, "id", "last_name");
             return View();
         }
@@ -55,7 +50,7 @@ namespace BusinessTrip.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,user_Id,email,fullname,main_place_of_work,position_in_combination,type_Id,purpose_Id,saving_salary_Id,trip_city,trip_country,institution_Id,start_date,end_date,itinerary,app_transport_Id,payment_Id,app_fundation_Id")] application application)
+        public ActionResult Create([Bind(Include = "id,user_Id,email,fullname,main_place_of_work,position_in_combination,type,purpose,saving_salary,trip_city,trip_country,institution,start_date,end_date,itinerary,app_transport_Id,payment,app_fundation_Id,institutionLocation")] application application)
         {
             if (ModelState.IsValid)
             {
@@ -66,11 +61,6 @@ namespace BusinessTrip.Controllers
 
             ViewBag.app_fundation_Id = new SelectList(db.app_fundation, "id", "id", application.app_fundation_Id);
             ViewBag.app_transport_Id = new SelectList(db.app_transport, "id", "id", application.app_transport_Id);
-            ViewBag.institution_Id = new SelectList(db.institution, "id", "institution1", application.institution_Id);
-            ViewBag.payment_Id = new SelectList(db.payment, "id", "expenses_payment", application.payment_Id);
-            ViewBag.purpose_Id = new SelectList(db.purpose, "id", "purpose1", application.purpose_Id);
-            ViewBag.saving_salary_Id = new SelectList(db.saving_salary, "id", "saving_salary1", application.saving_salary_Id);
-            ViewBag.type_Id = new SelectList(db.type, "id", "type_of_trip", application.type_Id);
             ViewBag.user_Id = new SelectList(db.user, "id", "last_name", application.user_Id);
             return View(application);
         }
@@ -89,11 +79,6 @@ namespace BusinessTrip.Controllers
             }
             ViewBag.app_fundation_Id = new SelectList(db.app_fundation, "id", "id", application.app_fundation_Id);
             ViewBag.app_transport_Id = new SelectList(db.app_transport, "id", "id", application.app_transport_Id);
-            ViewBag.institution_Id = new SelectList(db.institution, "id", "institution1", application.institution_Id);
-            ViewBag.payment_Id = new SelectList(db.payment, "id", "expenses_payment", application.payment_Id);
-            ViewBag.purpose_Id = new SelectList(db.purpose, "id", "purpose1", application.purpose_Id);
-            ViewBag.saving_salary_Id = new SelectList(db.saving_salary, "id", "saving_salary1", application.saving_salary_Id);
-            ViewBag.type_Id = new SelectList(db.type, "id", "type_of_trip", application.type_Id);
             ViewBag.user_Id = new SelectList(db.user, "id", "last_name", application.user_Id);
             return View(application);
         }
@@ -103,7 +88,7 @@ namespace BusinessTrip.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,user_Id,email,fullname,main_place_of_work,position_in_combination,type_Id,purpose_Id,saving_salary_Id,trip_city,trip_country,institution_Id,start_date,end_date,itinerary,app_transport_Id,payment_Id,app_fundation_Id")] application application)
+        public ActionResult Edit([Bind(Include = "id,user_Id,email,fullname,main_place_of_work,position_in_combination,type,purpose,saving_salary,trip_city,trip_country,institution,start_date,end_date,itinerary,app_transport_Id,payment,app_fundation_Id,institutionLocation")] application application)
         {
             if (ModelState.IsValid)
             {
@@ -113,11 +98,6 @@ namespace BusinessTrip.Controllers
             }
             ViewBag.app_fundation_Id = new SelectList(db.app_fundation, "id", "id", application.app_fundation_Id);
             ViewBag.app_transport_Id = new SelectList(db.app_transport, "id", "id", application.app_transport_Id);
-            ViewBag.institution_Id = new SelectList(db.institution, "id", "institution1", application.institution_Id);
-            ViewBag.payment_Id = new SelectList(db.payment, "id", "expenses_payment", application.payment_Id);
-            ViewBag.purpose_Id = new SelectList(db.purpose, "id", "purpose1", application.purpose_Id);
-            ViewBag.saving_salary_Id = new SelectList(db.saving_salary, "id", "saving_salary1", application.saving_salary_Id);
-            ViewBag.type_Id = new SelectList(db.type, "id", "type_of_trip", application.type_Id);
             ViewBag.user_Id = new SelectList(db.user, "id", "last_name", application.user_Id);
             return View(application);
         }

@@ -17,16 +17,15 @@ namespace BusinessTrip.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public app_fundation()
         {
-            this.application1 = new HashSet<application>();
+            this.application = new HashSet<application>();
         }
     
         public int id { get; set; }
         public int application_Id { get; set; }
         public int fundation_Id { get; set; }
     
-        public virtual application application { get; set; }
         public virtual foundation foundation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<application> application1 { get; set; }
+        public virtual ICollection<application> application { get; set; }
     }
 }

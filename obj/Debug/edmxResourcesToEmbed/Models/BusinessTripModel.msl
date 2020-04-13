@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="businesstripModelStoreContainer" CdmEntityContainer="businesstripEntities">
+  <EntityContainerMapping StorageEntityContainer="businesstripModelStoreContainer" CdmEntityContainer="businesstripContext">
     <EntitySetMapping Name="app_fundation">
       <EntityTypeMapping TypeName="businesstripModel.app_fundation">
         <MappingFragment StoreEntitySet="app_fundation">
@@ -28,18 +28,19 @@
           <ScalarProperty Name="fullname" ColumnName="fullname" />
           <ScalarProperty Name="main_place_of_work" ColumnName="main_place_of_work" />
           <ScalarProperty Name="position_in_combination" ColumnName="position_in_combination" />
-          <ScalarProperty Name="type_Id" ColumnName="type_Id" />
-          <ScalarProperty Name="purpose_Id" ColumnName="purpose_Id" />
-          <ScalarProperty Name="saving_salary_Id" ColumnName="saving_salary_Id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="purpose" ColumnName="purpose" />
+          <ScalarProperty Name="saving_salary" ColumnName="saving_salary" />
           <ScalarProperty Name="trip_city" ColumnName="trip_city" />
           <ScalarProperty Name="trip_country" ColumnName="trip_country" />
-          <ScalarProperty Name="institution_Id" ColumnName="institution_Id" />
+          <ScalarProperty Name="institution" ColumnName="institution" />
           <ScalarProperty Name="start_date" ColumnName="start_date" />
           <ScalarProperty Name="end_date" ColumnName="end_date" />
           <ScalarProperty Name="itinerary" ColumnName="itinerary" />
           <ScalarProperty Name="app_transport_Id" ColumnName="app_transport_Id" />
-          <ScalarProperty Name="payment_Id" ColumnName="payment_Id" />
+          <ScalarProperty Name="payment" ColumnName="payment" />
           <ScalarProperty Name="app_fundation_Id" ColumnName="app_fundation_Id" />
+          <ScalarProperty Name="institutionLocation" ColumnName="institutionLocation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -51,43 +52,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="institution">
-      <EntityTypeMapping TypeName="businesstripModel.institution">
-        <MappingFragment StoreEntitySet="institution">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="institution1" ColumnName="institution" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="payment">
-      <EntityTypeMapping TypeName="businesstripModel.payment">
-        <MappingFragment StoreEntitySet="payment">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="expenses_payment" ColumnName="expenses_payment" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="purpose">
-      <EntityTypeMapping TypeName="businesstripModel.purpose">
-        <MappingFragment StoreEntitySet="purpose">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="purpose1" ColumnName="purpose" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="role">
       <EntityTypeMapping TypeName="businesstripModel.role">
         <MappingFragment StoreEntitySet="role">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="role1" ColumnName="role" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="saving_salary">
-      <EntityTypeMapping TypeName="businesstripModel.saving_salary">
-        <MappingFragment StoreEntitySet="saving_salary">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="saving_salary1" ColumnName="saving_salary" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -99,24 +68,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="type">
-      <EntityTypeMapping TypeName="businesstripModel.type">
-        <MappingFragment StoreEntitySet="type">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="type_of_trip" ColumnName="type_of_trip" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="user">
       <EntityTypeMapping TypeName="businesstripModel.user">
         <MappingFragment StoreEntitySet="user">
-          <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="last_name" ColumnName="last_name" />
           <ScalarProperty Name="first_name" ColumnName="first_name" />
           <ScalarProperty Name="patronymic" ColumnName="patronymic" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="role_Id" ColumnName="role_Id" />
+          <ScalarProperty Name="password" ColumnName="password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,129 +1,143 @@
 ﻿@model IEnumerable<BusinessTrip.Models.application>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = null;
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fullname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.main_place_of_work)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.position_in_combination)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.trip_city)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.trip_country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.start_date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.end_date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.itinerary)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.app_fundation1.id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.app_transport.id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.institution.institution1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.payment.expenses_payment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.purpose.purpose1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.saving_salary.saving_salary1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.type.type_of_trip)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.user.last_name)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fullname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.main_place_of_work)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.position_in_combination)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.trip_city)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.trip_country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.start_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.end_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.itinerary)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.app_fundation1.id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.app_transport.id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.institution.institution1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.payment.expenses_payment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.purpose.purpose1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.saving_salary.saving_salary1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.type.type_of_trip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.user.last_name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
-
-</table>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fullname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.main_place_of_work)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.position_in_combination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.purpose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.saving_salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.trip_city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.trip_country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.institution)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.start_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.end_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.itinerary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.payment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.institutionLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.app_fundation.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.app_transport.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user.last_name)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.main_place_of_work)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.position_in_combination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.purpose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.saving_salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trip_city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trip_country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.institution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.itinerary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.institutionLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.app_fundation.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.app_transport.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.last_name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

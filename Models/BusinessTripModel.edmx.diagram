@@ -4,30 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e2134e62af3d4d3ba13ba7829ebc56a5" Name="Diagram1">
-        <EntityTypeShape EntityType="businesstripModel.app_fundation" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="businesstripModel.app_transport" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="businesstripModel.application" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="businesstripModel.foundation" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="businesstripModel.institution" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="businesstripModel.payment" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="businesstripModel.purpose" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="businesstripModel.role" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="businesstripModel.saving_salary" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="businesstripModel.transport" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="businesstripModel.type" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="businesstripModel.user" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
-        <AssociationConnector Association="businesstripModel.FK_app_fundation_application" ManuallyRouted="false" />
+      <Diagram DiagramId="d3700814cd9e4abf89c831e5875d02b9" Name="Diagram1">
+        <EntityTypeShape EntityType="businesstripModel.app_fundation" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="businesstripModel.app_transport" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="businesstripModel.application" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="businesstripModel.foundation" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="businesstripModel.role" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="businesstripModel.transport" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="businesstripModel.user" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
         <AssociationConnector Association="businesstripModel.FK_app_fundation_foundation" ManuallyRouted="false" />
         <AssociationConnector Association="businesstripModel.FK_application_app_fundation" ManuallyRouted="false" />
         <AssociationConnector Association="businesstripModel.FK_application_app_transport" ManuallyRouted="false" />
-        <AssociationConnector Association="businesstripModel.FK_app_transport_application" ManuallyRouted="false" />
         <AssociationConnector Association="businesstripModel.FK_app_transport_transport" ManuallyRouted="false" />
-        <AssociationConnector Association="businesstripModel.FK_application_institution" ManuallyRouted="false" />
-        <AssociationConnector Association="businesstripModel.FK_application_payment" ManuallyRouted="false" />
-        <AssociationConnector Association="businesstripModel.FK_application_purpose" ManuallyRouted="false" />
-        <AssociationConnector Association="businesstripModel.FK_application_saving_salary" ManuallyRouted="false" />
-        <AssociationConnector Association="businesstripModel.FK_application_type" ManuallyRouted="false" />
         <AssociationConnector Association="businesstripModel.FK_application_user" ManuallyRouted="false" />
         <AssociationConnector Association="businesstripModel.FK_user_role" ManuallyRouted="false" />
       </Diagram>

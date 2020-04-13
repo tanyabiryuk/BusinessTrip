@@ -14,43 +14,28 @@ namespace BusinessTrip.Models
     
     public partial class application
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public application()
-        {
-            this.app_fundation = new HashSet<app_fundation>();
-            this.app_transport1 = new HashSet<app_transport>();
-        }
-    
         public int id { get; set; }
         public int user_Id { get; set; }
         public string email { get; set; }
         public string fullname { get; set; }
         public string main_place_of_work { get; set; }
         public string position_in_combination { get; set; }
-        public int type_Id { get; set; }
-        public int purpose_Id { get; set; }
-        public int saving_salary_Id { get; set; }
+        public string type { get; set; }
+        public string purpose { get; set; }
+        public string saving_salary { get; set; }
         public string trip_city { get; set; }
         public string trip_country { get; set; }
-        public int institution_Id { get; set; }
+        public string institution { get; set; }
         public System.DateTime start_date { get; set; }
         public System.DateTime end_date { get; set; }
         public string itinerary { get; set; }
         public Nullable<int> app_transport_Id { get; set; }
-        public int payment_Id { get; set; }
+        public string payment { get; set; }
         public int app_fundation_Id { get; set; }
+        public string institutionLocation { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<app_fundation> app_fundation { get; set; }
-        public virtual app_fundation app_fundation1 { get; set; }
+        public virtual app_fundation app_fundation { get; set; }
         public virtual app_transport app_transport { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<app_transport> app_transport1 { get; set; }
-        public virtual institution institution { get; set; }
-        public virtual payment payment { get; set; }
-        public virtual purpose purpose { get; set; }
-        public virtual saving_salary saving_salary { get; set; }
-        public virtual type type { get; set; }
         public virtual user user { get; set; }
     }
 }

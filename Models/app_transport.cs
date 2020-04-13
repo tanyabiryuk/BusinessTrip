@@ -26,7 +26,6 @@ namespace BusinessTrip.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<application> application { get; set; }
-        public virtual application application1 { get; set; }
         public virtual transport transport { get; set; }
     }
 }

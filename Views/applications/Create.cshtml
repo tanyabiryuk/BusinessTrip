@@ -11,322 +11,324 @@
 <h1>Заявка на відрядження</h1>
 
 @using (Html.BeginForm())
-{
-
-<div>
-    <h4></h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.email, "Електронна адреса")
-        <div>
-            @Html.EditorFor(model => model.email)
-            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+{ 
+    <div>
+        <h4></h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, "Електронна адреса")
+            <div>
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.fullname, "1. Ваше прізвище, ім'я, по- батькові (в родовому відмінку)")
-        <div>
-            @Html.EditorFor(model => model.fullname)
-            @Html.ValidationMessageFor(model => model.fullname, "", new { @class = "text-danger" })
+        
+        <br /><hr />
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.fullname, "1. Ваше прізвище, ім'я, по- батькові (в родовому відмінку)")
+            <div>
+                @Html.EditorFor(model => model.fullname)
+                @Html.ValidationMessageFor(model => model.fullname, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.main_place_of_work, "2.Вкажіть підрозділ та посаду за основним місцем праці")
-        <div>
-            @Html.EditorFor(model => model.main_place_of_work)
-            @Html.ValidationMessageFor(model => model.main_place_of_work, "", new { @class = "text-danger" })
+        
+        <br /><hr />
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.main_place_of_work, "2.Вкажіть підрозділ та посаду за основним місцем праці")
+            <div>
+                @Html.EditorFor(model => model.main_place_of_work)
+                @Html.ValidationMessageFor(model => model.main_place_of_work, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.position_in_combination, "3.Вкажіть відділ та посаду за сумісництвом (за наявності)")
-        <div>
-            @Html.EditorFor(model => model.position_in_combination)
-            @Html.ValidationMessageFor(model => model.position_in_combination, "", new { @class = "text-danger" })
+        
+        <br /><hr />
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.position_in_combination, "3.Вкажіть відділ та посаду за сумісництвом (за наявності)")
+            <div>
+                @Html.EditorFor(model => model.position_in_combination)
+                @Html.ValidationMessageFor(model => model.position_in_combination, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <br /><hr />
+        <br /><hr />
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.type_Id, "4. Вкажіть тип відрядження")
-        <div>
-            @Html.RadioButtonFor(model => model.type_Id, "Відрядження по Україні", new { onclick = "hideCountry()" })
-            <label>Відрядження по Україні</label>
-            <br />
-            @Html.RadioButtonFor(model => model.type_Id, "Відрядження закордон", new { onclick = "showCountry()" })
-            <label>Відрядження закордон</label>
+        <div class="form-group">
+            @Html.LabelFor(model => model.type, "4. Вкажіть тип відрядження")
+            <div>
+                @Html.RadioButtonFor(model => model.type, "Відрядження по Україні", new { onclick = "hideCountry()" })
+                <label>Відрядження по Україні</label>
+                <br />
+                @Html.RadioButtonFor(model => model.type, "Відрядження закордон", new { onclick = "showCountry()" })
+                <label>Відрядження закордон</label>
+                <script type="text/javascript">
+                    function showCountry() {
+                        document.getElementById('country').style.display = "block";
+                        document.getElementById('way').style.display = "none";
+                        document.getElementById('transport').style.display = "none";
+                    };
+                    function hideCountry() {
+                        document.getElementById('country').style.display = "none";
+                        document.getElementById('way').style.display = "block";
+                        document.getElementById('transport').style.display = "block";
+                    };
+                </script>
+            </div>
+        </div>
+
+        <br /><hr />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.purpose, "4. Вкажіть мету відрядження")
+            <fieldset>
+                @Html.RadioButtonFor(model => model.purpose, "З метою реалізації права на академічну мобільність відповідно до Постанови Кабінету Міністрів України від 12.08.2019 р. №579",
+               new { onchange = "otherHide(this)" })
+                <label>З метою реалізації права на академічну мобільність відповідно до Постанови Кабінету Міністрів України від 12.08.2019 р. №579</label>
+                <br />
+                @Html.RadioButtonFor(model => model.purpose, "проходження стажування",
+               new { onchange = "otherHide(this)" })
+                <label>проходження стажування</label>
+                <br />
+                @Html.RadioButtonFor(model => model.purpose, "для викладу лекційного курсу",
+               new { onchange = "otherHide(this)" })
+                <label>для викладу лекційного курсу</label>
+                <br />
+                @Html.RadioButtonFor(model => model.purpose, "участь в проектній зустрічі",
+               new { onchange = "otherHide(this)" })
+                <label>участь в проектній зустрічі</label>
+                <br />
+                @Html.RadioButtonFor(model => model.purpose, "участь у тренінгу",
+               new { onchange = "otherHide(this)" })
+                <label>участь у тренінгу</label>
+                <br />
+                @Html.RadioButtonFor(model => model.purpose, "Інше",
+               new { id = "r6" })
+                <label for="otherAnswer">Інше:</label>
+                <div id="otherAnswer" style="display:none">
+                    @Html.EditorFor(model => model.purpose, new { oninput = "otherRes(this)" })
+                </div>
+            </fieldset>
             <script type="text/javascript">
-                function showCountry() {
-                    document.getElementById('country').style.display = "block";
-                    document.getElementById('way').style.display = "none";
-                    document.getElementById('transport').style.display = "none";
+                var purpose;
+                function otherHide(radiobutton) {
+                    document.getElementById('otherAnswer').style.display = "none";
+                    purpose = radiobutton.value;
                 };
-                function hideCountry() {
-                    document.getElementById('country').style.display = "none";
-                    document.getElementById('way').style.display = "block";
-                    document.getElementById('transport').style.display = "block";
-                };
-            </script>
-        </div>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.purpose_Id, "4. Вкажіть мету відрядження")
-        <fieldset>
-            @Html.RadioButtonFor(model => model.purpose_Id, "З метою реалізації права на академічну мобільність відповідно до Постанови Кабінету Міністрів України від 12.08.2019 р. №579",
-           new { onchange = "otherHide(this)" })
-            <label>З метою реалізації права на академічну мобільність відповідно до Постанови Кабінету Міністрів України від 12.08.2019 р. №579</label>
-            <br />
-            @Html.RadioButtonFor(model => model.purpose_Id, "проходження стажування",
-           new { onchange = "otherHide(this)" })
-            <label>проходження стажування</label>
-            <br />
-            @Html.RadioButtonFor(model => model.purpose_Id, "для викладу лекційного курсу",
-           new { onchange = "otherHide(this)" })
-            <label>для викладу лекційного курсу</label>
-            <br />
-            @Html.RadioButtonFor(model => model.purpose_Id, "участь в проектній зустрічі",
-           new { onchange = "otherHide(this)" })
-            <label>участь в проектній зустрічі</label>
-            <br />
-            @Html.RadioButtonFor(model => model.purpose_Id, "участь у тренінгу",
-           new { onchange = "otherHide(this)" })
-            <label>участь у тренінгу</label>
-            <br />
-            @Html.RadioButtonFor(model => model.purpose_Id, "Інше",
-           new { id = "r6" })
-            <label for="otherAnswer">Інше:</label>
-            <div id="otherAnswer" style="display:none">
-                @Html.EditorFor(model => model.purpose_Id, new { oninput = "otherRes(this)" })
-            </div>
-
-        </fieldset>
-        <script type="text/javascript">
-            var purpose;
-            function otherHide(radiobutton) {
-                document.getElementById('otherAnswer').style.display = "none";
-                purpose = radiobutton.value;
-            };
-            $('#r6').click(function () {
-                document.getElementById('otherAnswer').style.display = "block";
-            });
-        </script>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.saving_salary_Id, "5. Вкажіть вид збереження заробітної плати")
-        <fieldset>
-            @Html.RadioButtonFor(model => model.saving_salary_Id, "зі збереженням середньої зарплати за основним місце праці")
-            <label>зі збереженням середньої зарплати за основним місце праці</label>
-            <br />
-            @Html.RadioButtonFor(model => model.saving_salary_Id, "зі збереженням середньої зарплати за основним місцем праці та за сумісництвом")
-            <label>зі збереженням середньої зарплати за основним місцем праці та за сумісництвом</label>
-            <br />
-            @Html.RadioButtonFor(model => model.saving_salary_Id, "без збереження заробітної плати (тривалість відрядження більше 10-ти днів)")
-            <label>без збереження заробітної плати (тривалість відрядження більше 10-ти днів)</label>
-        </fieldset>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.trip_city, "6. Вкажіть місто відрядження ")
-        <div>
-            @Html.EditorFor(model => model.trip_city)
-            @Html.ValidationMessageFor(model => model.trip_city, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group" id="country" style="display:none">
-        @Html.LabelFor(model => model.trip_country, "7. Вкажіть країну відрядження (для закордонного відрядження)")
-        <div>
-            @Html.EditorFor(model => model.trip_country)
-            @Html.ValidationMessageFor(model => model.trip_country, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.institution_Id, "8. Вкажіть установу, куди відряджаєтесь")
-        <div>
-            @Html.RadioButtonFor(model => model.institution_Id, "Міністерство освіти і науки України",
-           new { onchange = "otherInstHide()" })
-            <label>Міністерство освіти і науки України</label>
-            <br />
-            @Html.RadioButtonFor(model => model.institution_Id, "Інше",
-           new { onchange = "otherInstShow()" })
-            <label for="otherInstitut">Інше:</label>
-            <div id="otherInstitut" style="display:none">
-                @Html.EditorFor(model => model.institution_Id)
-            </div>
-            @Html.ValidationMessageFor(model => model.institution_Id, "", new { @class = "text-danger" })
-        </div>
-        <script type="text/javascript">
-            function otherInstHide() {
-                document.getElementById('otherInstitut').style.display = "none";
-            };
-            function otherInstShow() {
-                document.getElementById('otherInstitut').style.display = "block";
-            };
-        </script>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.start_date, "9. Вкажіть дату початку відрядження")
-        <div>
-            @Html.TextBoxFor(model => model.start_date, new { @type = "date", @class = "form-control datepicker" })
-
-            @Html.ValidationMessageFor(model => model.start_date, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.start_date, "10. Вкажіть дату завершення відрядження")
-        <div>
-            @Html.TextBoxFor(model => model.end_date, new { @type = "date", @class = "form-control datepicker" })
-
-            @Html.ValidationMessageFor(model => model.end_date, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group" id="way" style="display:none">
-        @Html.LabelFor(model => model.itinerary, "11. Вкажіть маршрут поїздки (для відряджень по Україні). Наприклад: Львів-Київ-Львів")
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.itinerary)
-            @Html.ValidationMessageFor(model => model.itinerary, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group" id="transport" style="display:none">
-        @Html.LabelFor(model => model.app_transport_Id, "12. Вкажіть транспорт, яким будете подорожувати (для відряджень по Україні).")
-        <div>
-            <input type="checkbox" id="checkTransport1" value="Залізничий">
-            <label for="checkTransport1">Залізничий</label><br>
-            <input type="checkbox" id="checkTransport2" value="Автомобільний">
-            <label for="checkTransport2">Автомобільний</label><br>
-            <input type="checkbox" id="checkTransport3" value="Літак">
-            <label for="checkTransport3">Літак</label><br>
-            <input type="checkbox" id="checkTransport4" value="Інше">
-            <label for="checkTransport4">Інше:</label><br>
-            <div id="otherTransport" style="display:none">
-                @Html.EditorFor(model => model.institution_Id)
-            </div>
-        </div>
-        <script type="text/javascript">
-            $('#checkTransport4').click(function () {
-                if (document.getElementById('checkTransport4').checked == true)
-                    document.getElementById('otherTransport').style.display = "block";
-                else document.getElementById('otherTransport').style.display = "none";
-            })
-        </script>
-    </div>
-
-    <br /><hr />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.payment_Id, "13. Вкажіть, як буде здійснюватись оплата видатків на відрядження")
-        <div>
-            @Html.RadioButtonFor(model => model.payment_Id, "за власний кошт/ за рахунок приймаючої сторони",
-          new { onchange = "otherPaymentHide()" })
-            <label>за власний кошт/ за рахунок приймаючої сторони</label>
-            <br />
-            @Html.RadioButtonFor(model => model.payment_Id, "витрати на проїзд, добові за рахунок коштів факультету відповідно до кошторису",
-           new { onchange = "otherPaymentHide()" })
-            <label>витрати на проїзд, добові за рахунок коштів факультету відповідно до кошторису</label>
-            <br />
-            @Html.RadioButtonFor(model => model.payment_Id, "витрати на проїзд, добові за рахунок коштів університету відповідно до кошторису",
-           new { onchange = "otherPaymentHide()" })
-            <label>витрати на проїзд, добові за рахунок коштів університету відповідно до кошторису</label>
-            <br />
-            @Html.RadioButtonFor(model => model.payment_Id, "Інше",
-           new { id = "op" })
-            <label for="otherPayment">Інше:</label>
-            <div id="otherPayment" style="display:none">
-                @Html.EditorFor(model => model.payment_Id)
-            </div>
-            <script type="text/javascript">
-                function otherPaymentHide() {
-                    document.getElementById('otherPayment').style.display = "none";
-                };
-                $('#op').click(function () {
-                    document.getElementById('otherPayment').style.display = "block";
+                $('#r6').click(function () {
+                    document.getElementById('otherAnswer').style.display = "block";
                 });
             </script>
         </div>
-    </div>
+        
+        <br /><hr />
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.saving_salary, "5. Вкажіть вид збереження заробітної плати")
+            <fieldset>
+                @Html.RadioButtonFor(model => model.saving_salary, "зі збереженням середньої зарплати за основним місце праці")
+                <label>зі збереженням середньої зарплати за основним місце праці</label>
+                <br />
+                @Html.RadioButtonFor(model => model.saving_salary, "зі збереженням середньої зарплати за основним місцем праці та за сумісництвом")
+                <label>зі збереженням середньої зарплати за основним місцем праці та за сумісництвом</label>
+                <br />
+                @Html.RadioButtonFor(model => model.saving_salary, "без збереження заробітної плати (тривалість відрядження більше 10-ти днів)")
+                <label>без збереження заробітної плати (тривалість відрядження більше 10-ти днів)</label>
+            </fieldset>
+        </div>
 
-    <br /><hr />
+        <br /><hr />
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.app_fundation_Id, "14. Вкажіть підставу відрядження ")
-        <div>
-            <input type="checkbox" id="checkFoundation1" value="запрошення">
-            <label for="checkFoundation1">запрошення</label><br>
-            <input type="checkbox" id="checkFoundation2" value="витяг з протоколу засідання Вченої Ради факультету">
-            <label for="checkFoundation2">витяг з протоколу засідання Вченої Ради факультету</label><br>
-            <input type="checkbox" id="checkFoundation3" value="рапорт проректора">
-            <label for="checkFoundation3">рапорт проректора</label><br>
-            <input type="checkbox" id="checkFoundation4" value="Інше">
-            <label for="checkFoundation4">Інше:</label><br>
-            <div id="otherFoundation" style="display:none">
-                @Html.EditorFor(model => model.app_fundation_Id)
+        <div class="form-group">
+            @Html.LabelFor(model => model.trip_city, "6. Вкажіть місто відрядження ")
+            <div>
+                @Html.EditorFor(model => model.trip_city)
+                @Html.ValidationMessageFor(model => model.trip_city, "", new { @class = "text-danger" })
             </div>
         </div>
-        <script type="text/javascript">
-            $('#checkFoundation4').click(function () {
-                if (document.getElementById('checkFoundation4').checked == true)
-                    document.getElementById('otherFoundation').style.display = "block";
-                else document.getElementById('otherFoundation').style.display = "none";
-            })
-        </script>
-    </div>
+        
+        <br /><hr />
+        <div class="form-group" id="country" style="display:none">
+            @Html.LabelFor(model => model.trip_country, "7. Вкажіть країну відрядження (для закордонного відрядження)")
+            <div>
+                @Html.EditorFor(model => model.trip_country)
+                @Html.ValidationMessageFor(model => model.trip_country, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-    <br /><hr />
+        <br /><hr />
 
-    <div class="form-group">
-        <label>16. Про зміни у суттєвих умовах відрядження (дострокового повернення, зміні дати повернення) повідомити працівників відділу кадрів в найкоротший термін на електронну пошту vk101dok@gmail.com *</label>
+        <div class="form-group">
+            @Html.LabelFor(model => model.institution, "8. Вкажіть установу, куди відряджаєтесь")
+            <div>
+                @Html.RadioButtonFor(model => model.institution, "Міністерство освіти і науки України",
+               new { onchange = "otherInstHide()" })
+                <label>Міністерство освіти і науки України</label>
+                <br />
+                @Html.RadioButtonFor(model => model.institution, "Інше",
+               new { onchange = "otherInstShow()" })
+                <label for="otherInstitut">Інше:</label>
+                <div id="otherInstitut" style="display:none">
+                    @Html.EditorFor(model => model.institution)
+                </div>
+                @Html.ValidationMessageFor(model => model.institution, "", new { @class = "text-danger" })
+            </div>
+            <script type="text/javascript">
+                function otherInstHide() {
+                    document.getElementById('otherInstitut').style.display = "none";
+                };
+                function otherInstShow() {
+                    document.getElementById('otherInstitut').style.display = "block";
+                };
+            </script>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.institution, "8. Вкажіть адресу установи куди відряджаєтесь")
+            <div>
+                @Html.EditorFor(model => model.institution)
+                @Html.ValidationMessageFor(model => model.institution, "", new { @class = "text-danger" })
+            </div>
+        
+            <br /><hr />
+        
+            <div class="form-group">
+                @Html.LabelFor(model => model.start_date, "9. Вкажіть дату початку відрядження")
+                <div>
+                    @Html.TextBoxFor(model => model.start_date, new { @type = "date", @class = "form-control datepicker" })
+                    @Html.ValidationMessageFor(model => model.start_date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            
+            <br /><hr />
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.start_date, "10. Вкажіть дату завершення відрядження")
+                <div>
+                    @Html.TextBoxFor(model => model.end_date, new { @type = "date", @class = "form-control datepicker" })
+                    @Html.ValidationMessageFor(model => model.end_date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            
+            <br /><hr />
+            
+            <div class="form-group" id="way" style="display:none">
+                @Html.LabelFor(model => model.itinerary, "11. Вкажіть маршрут поїздки (для відряджень по Україні). Наприклад: Львів-Київ-Львів")
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.itinerary)
+                    @Html.ValidationMessageFor(model => model.itinerary, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            
+            <br /><hr />
+            <div class="form-group" id="transport" style="display:none">
+                @Html.LabelFor(model => model.app_transport_Id, "12. Вкажіть транспорт, яким будете подорожувати (для відряджень по Україні).")
+                <div>
+                    <input type="checkbox" id="checkTransport1" value="Залізничий">
+                    <label for="checkTransport1">Залізничий</label><br>
+                    <input type="checkbox" id="checkTransport2" value="Автомобільний">
+                    <label for="checkTransport2">Автомобільний</label><br>
+                    <input type="checkbox" id="checkTransport3" value="Літак">
+                    <label for="checkTransport3">Літак</label><br>
+                    <input type="checkbox" id="checkTransport4" value="Інше">
+                    <label for="checkTransport4">Інше:</label><br>
+                    <div id="otherTransport" style="display:none">
+                        @Html.EditorFor(model => model.institution)
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $('#checkTransport4').click(function () {
+                        if (document.getElementById('checkTransport4').checked == true)
+                            document.getElementById('otherTransport').style.display = "block";
+                        else document.getElementById('otherTransport').style.display = "none";
+                    })
+                </script>
+            </div>
+            
+            <br /><hr />
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.payment, "13. Вкажіть, як буде здійснюватись оплата видатків на відрядження")
+                <div>
+                    @Html.RadioButtonFor(model => model.payment, "за власний кошт/ за рахунок приймаючої сторони",
+                   new { onchange = "otherPaymentHide()" })
+                    <label>за власний кошт/ за рахунок приймаючої сторони</label>
+                    <br />
+                    @Html.RadioButtonFor(model => model.payment, "витрати на проїзд, добові за рахунок коштів факультету відповідно до кошторису",
+                   new { onchange = "otherPaymentHide()" })
+                    <label>витрати на проїзд, добові за рахунок коштів факультету відповідно до кошторису</label>
+                    <br />
+                    @Html.RadioButtonFor(model => model.payment, "витрати на проїзд, добові за рахунок коштів університету відповідно до кошторису",
+                   new { onchange = "otherPaymentHide()" })
+                    <label>витрати на проїзд, добові за рахунок коштів університету відповідно до кошторису</label>
+                    <br />
+                    @Html.RadioButtonFor(model => model.payment, "Інше",
+                   new { id = "op" })
+                    <label for="otherPayment">Інше:</label>
+                    <div id="otherPayment" style="display:none">
+                        @Html.EditorFor(model => model.payment)
+                    </div>
+                    <script type="text/javascript">function otherPaymentHide() {
+                            document.getElementById('otherPayment').style.display = "none";
+                        };
+                        $('#op').click(function () {
+                            document.getElementById('otherPayment').style.display = "block";
+                        });
+                    </script>
+                </div>
+            </div>
+            
+            <br/><hr />
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.app_fundation_Id, "14. Вкажіть підставу відрядження ")
+                <div>
+                    <input type="checkbox" id="checkFoundation1" value="запрошення">
+                    <label for="checkFoundation1">запрошення</label><br>
+                    <input type="checkbox" id="checkFoundation2" value="витяг з протоколу засідання Вченої Ради факультету">
+                    <label for="checkFoundation2">витяг з протоколу засідання Вченої Ради факультету</label><br>
+                    <input type="checkbox" id="checkFoundation3" value="рапорт проректора">
+                    <label for="checkFoundation3">рапорт проректора</label><br>
+                    <input type="checkbox" id="checkFoundation4" value="Інше">
+                    <label for="checkFoundation4">Інше:</label><br>
+                    <div id="otherFoundation" style="display:none">
+                        <input type="text"/>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    $('#checkFoundation4').click(function () {
+                        if (document.getElementById('checkFoundation4').checked == true)
+                            document.getElementById('otherFoundation').style.display = "block";
+                        else document.getElementById('otherFoundation').style.display = "none";
+                    })
+                </script>
+            </div>
+            
+            <br /><hr />
+            
+            <div class="form-group">
+                <label>16. Про зміни у суттєвих умовах відрядження (дострокового повернення, зміні дати повернення) повідомити працівників відділу кадрів в найкоротший термін на електронну пошту vk101dok@gmail.com *</label>
+                <div>
+                    <input type="checkbox" id="acceptCheckBox" value="Зобов'язуюсь повідомити">
+                    <label for="acceptCheckBox">Зобов'язуюсь повідомити</label><br>
+                </div>
+            </div>
+            
+            <br /><hr />
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" />
+                </div>
+            </div>
+        </div>
         <div>
-            <input type="checkbox" id="acceptCheckBox" value="Зобов'язуюсь повідомити">
-            <label for="acceptCheckBox">Зобов'язуюсь повідомити</label><br>
+            @Html.ActionLink("Back to List", "Index")
         </div>
     </div>
-
-    <br /><hr />
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
