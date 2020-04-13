@@ -1,0 +1,154 @@
+﻿@model BusinessTrip.Models.application
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>application</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fullname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.main_place_of_work)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.main_place_of_work)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.position_in_combination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.position_in_combination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.trip_city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trip_city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.trip_country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trip_country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.start_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.end_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.end_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.itinerary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.itinerary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.app_fundation1.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.app_fundation1.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.app_transport.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.app_transport.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.institution.institution1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.institution.institution1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment.expenses_payment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment.expenses_payment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.purpose.purpose1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purpose.purpose1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.saving_salary.saving_salary1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.saving_salary.saving_salary1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type.type_of_trip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type.type_of_trip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user.last_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user.last_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

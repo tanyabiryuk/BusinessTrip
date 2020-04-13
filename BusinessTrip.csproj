@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\appController.cs" />
+    <Compile Include="Controllers\applicationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -241,6 +242,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\app\Index.cshtml" />
+    <Content Include="Views\applications\Create.cshtml" />
+    <Content Include="Views\applications\Delete.cshtml" />
+    <Content Include="Views\applications\Details.cshtml" />
+    <Content Include="Views\applications\Edit.cshtml" />
+    <Content Include="Views\applications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,7 +20,7 @@ namespace BusinessTrip.Models
         public businesstripEntities()
             : base("name=businesstripEntities")
         {
-            //Database.SetInitializer<businesstripEntities>(new UniDBInitializer<businesstripEntities>());
+            Database.SetInitializer<businesstripEntities>(new UniDBInitializer<businesstripEntities>());
             Initialize();
         }
     
@@ -147,7 +147,7 @@ namespace BusinessTrip.Models
                 }
             }
         }
-        private class UniDBInitializer<T>: CreateDatabaseIfNotExists<businesstripEntities>
+        private class UniDBInitializer<T>: DropCreateDatabaseAlways<businesstripEntities>
         {
             protected override void Seed(businesstripEntities context)
             {
