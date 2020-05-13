@@ -9,10 +9,7 @@
     {
         public BusinessTripContext(DbContextOptions<BusinessTripContext> options)
             :base(options)
-            //: base("name=BusinessTripContext")
         {
-            //Database.SetInitializer<businesstripContext>(new UniDBInitializer<businesstripContext>());
-            //Initialize();
             Database.EnsureCreated();
         }
 
@@ -23,15 +20,6 @@
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Transport> Transport { get; set; }
         public virtual DbSet<User> User { get; set; }
-
-        public void Initialize()
-        {
-            if (!this.Role.Any())
-            {
-                this.Role.Add(new Role { Id = 1, RoleName = "admin" });
-                this.Role.Add(new Role { Id = 2, RoleName = "user" });
-            }
-        }
 
     }
 }

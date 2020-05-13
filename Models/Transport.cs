@@ -11,6 +11,7 @@
             this.App_transport = new HashSet<App_Transport>();
         }
         public int Id { get; set; }
+        //вид транспорту для відрядження
         public string TransportType { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -3,6 +3,9 @@
     using System;
     using System.Collections.Generic;
 
+    //відношення багато до багатьох
+    //зв'язок між заявкою і підставою
+    //Для одного відрядження кілька підстав
     public partial class App_Fundation
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -12,7 +15,9 @@
         }
 
         public int Id { get; set; }
+        //заявка
         public int ApplicationId { get; set; }
+        //підстава
         public int FundationId { get; set; }
 
         public virtual Foundation Foundation { get; set; }
