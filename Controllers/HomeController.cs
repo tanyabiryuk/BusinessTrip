@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BusinessTrip.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BusinessTrip.Controllers
 {
@@ -17,9 +18,10 @@ namespace BusinessTrip.Controllers
             db = context;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
-            return View(db.Role.ToList());
+            return Content(User.Identity.Name);
         }
 
         public IActionResult Privacy()

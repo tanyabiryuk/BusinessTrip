@@ -22,7 +22,23 @@ namespace BusinessTrip.Models
                 context.Role.Add(new Role { RoleName = "user" });
                 context.SaveChanges();
             }
-            
+
+            string adminEmail = "admin@gmail.com";
+            string adminPaassword = "Admin_2358";
+            if (context.User.Where(u => u.Email == adminEmail && u.Password==adminPaassword).ToList().Count == 0)
+            {
+                context.User.Add(new User
+                {
+                    Email = adminEmail,
+                    Password = adminPaassword,
+                    LastName = "Адміністратор",
+                    FirstName = "Адмін",
+                    FatherName = "Адмінович",
+                    RoleId = context.Role.Where(r => r.RoleName == "admin").First().Id
+                });
+                context.SaveChanges();
+            }
+
         }
     }
 }
