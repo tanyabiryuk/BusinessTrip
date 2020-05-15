@@ -8,6 +8,7 @@ namespace BusinessTrip.ViewModels
 {
     public class RegisterModel
     {
+        [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "Поле обов'язкове")]
         public string Email { get; set; }
 

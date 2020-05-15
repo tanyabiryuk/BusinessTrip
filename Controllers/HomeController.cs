@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BusinessTrip.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace BusinessTrip.Controllers
 {
@@ -18,13 +19,23 @@ namespace BusinessTrip.Controllers
             db = context;
         }
 
-        [Authorize]
+
         public IActionResult Index()
         {
-            return Content(User.Identity.Name);
+            //string role = User.FindFirst(x => x.Type == ClaimsIdentity.DefaultRoleClaimType).Value;
+            return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult News()
+        {
+            return View();
+        }
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
         {
             return View();
         }

@@ -1,0 +1,192 @@
+﻿body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+header li {
+    float: right;
+}
+
+header .menu {
+    float: left;
+}
+
+#embl {
+    float: left;
+    font-size: 1.5vw;
+    padding: 0vw;
+    margin-top: -2vw;
+    margin-bottom: -4vw;
+    margin-left: 2vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.menu a {
+    font-size: 2vw;
+    padding: 1.5vw;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding-top: 1.8vw;
+    padding-bottom: 1.8vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+    li a:hover, select:hover, .logout:hover {
+        font-size:25px;
+    }
+
+/* Style the header */
+header {
+    background-color: black;
+    margin: -8px;
+    padding: 0px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+.logout {
+    background-color: darkcyan;
+    text-align: center;
+    color: white;
+    border: none;
+    display: block;
+    padding-top: 1.8vw;
+    padding-bottom: 1.8vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-size: 1.5vw;
+    text-decoration: none;
+}
+
+.textbox, .submit {
+    font-size: 20px;
+}
+
+.checkbox {
+    width: 25px;
+    height: 25px;
+}
+
+footer {
+    margin-left: -2vw;
+    width: 100vw;
+    background-color:black;
+    padding: 1px;
+    text-align: center;
+    color: white;
+}
+
+div h2 {
+    margin: 6%;
+    text-align: center;
+}
+
+footer p {
+    font-size: small;
+}
+
+section h1, section h2, section h3, section h4, section h5, section label, section p {
+    font-size: 25px;
+}
+
+.edit-btn, .chpass-btn, .delete-btn {
+    padding: 5px;
+    margin: 2px;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.edit-btn {
+    background-color: darkolivegreen;
+}
+
+.chpass-btn {
+    background-color: darkslategrey;
+}
+
+.delete-btn {
+    background-color: darkred;
+}
+
+table, th, td {
+    padding: 10px;
+    margin: 10px;
+    text-align: center
+}
+
+.bigText {
+    font-size: 25px;
+}
+
+/* Style the content */
+section {
+    /*width: 80%;*/
+    /*-webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #f1f1f1;
+    padding: 7vw;
+}

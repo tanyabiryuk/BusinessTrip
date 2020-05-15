@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BusinessTrip.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BusinessTrip.Controllers
 {
@@ -45,6 +46,7 @@ namespace BusinessTrip.Controllers
         }
 
         // GET: Applications/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");

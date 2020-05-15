@@ -1,0 +1,20 @@
+﻿@using System.Security.Claims
+@using System.Linq;
+
+@{
+    ViewData["Title"] = "News";
+}
+
+<section>
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (((ClaimsIdentity)User.Identity).Claims
+                    .Where(c => c.Type == ClaimTypes.Role)
+                    .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+        else { Layout = "~/Views/Shared/_Layout.cshtml"; }
+    }
+
+    <h1>Тут деякі новини</h1>
+</section>
+
+

@@ -8,10 +8,11 @@ namespace BusinessTrip.ViewModels
 {
     public class LoginModel
     {
-        [Required(ErrorMessage = "Не вказана електронна адреса")]
+        [DataType(DataType.EmailAddress)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Не вказана електронна адреса")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Не вказано пароль")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Не вказано пароль")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }

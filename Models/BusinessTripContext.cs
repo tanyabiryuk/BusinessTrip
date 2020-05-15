@@ -21,5 +21,7 @@
         public virtual DbSet<Transport> Transport { get; set; }
         public virtual DbSet<User> User { get; set; }
 
+        
+
     }
 }

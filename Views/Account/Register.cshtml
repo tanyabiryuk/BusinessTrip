@@ -1,5 +1,4 @@
 ﻿@model BusinessTrip.ViewModels.RegisterModel
-@Html.ValidationSummary(true)
 
 <h2>Реєстрація</h2>
 
@@ -8,33 +7,33 @@
     <div>
         <div>
             <label asp-for="Email">Введіть електронну адресу</label><br />
-            <input type="text" asp-for="Email" />
-            <span asp-validation-for="Email" />
+            <input type="text" asp-for="Email" /><br/>
+            <span asp-validation-for="Email"></span>
         </div>
         <div>
             <label asp-for="LastName">Вкажіть Ваше прізвище</label><br />
-            <input type="text" asp-for="LastName" />
-            <span asp-validation-for="LastName" />
+            <input type="text" asp-for="LastName" /><br/>
+            <span asp-validation-for="LastName"></span>
         </div>
         <div>
             <label asp-for="FirstName">Вкажіть Ваше ім'я</label><br />
-            <input type="text" asp-for="FirstName" />
-            <span asp-validation-for="FirstName" />
+            <input type="text" asp-for="FirstName" /><br/>
+            <span asp-validation-for="FirstName"></span>
         </div>
         <div>
             <label asp-for="FatherName">Вкажіть побатькові</label><br />
-            <input type="text" asp-for="FatherName" />
-            <span asp-validation-for="FirstName" />
+            <input type="text" asp-for="FatherName" /><br/>
+            <span asp-validation-for="FatherName"></span>
         </div>
         <div>
             <label asp-for="Password">Введіте пароль</label><br />
-            <input asp-for="Password" />
-            <span asp-validation-for="Password" />
+            <input asp-for="Password" /><br/>
+            <span asp-validation-for="Password"></span>
         </div>
         <div>
             <label asp-for="ConfirmPassword">Підтвердіть пароль</label><br />
-            <input asp-for="ConfirmPassword" />
-            <span asp-validation-for="ConfirmPassword" />
+            <input asp-for="ConfirmPassword" /><br/>
+            <span asp-validation-for="ConfirmPassword"></span>
         </div>
         <div>
             <input type="submit" value="Зареєструватись" />

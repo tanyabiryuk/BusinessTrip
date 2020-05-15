@@ -1,0 +1,63 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/_Layout.css" />
+</head>
+<body>
+    <header>
+        <ul>
+            <li class="menu">
+                <a id="embl" asp-area="" asp-controller="Home" asp-action="Index">
+                    <h1><b>Business<i>Trip</i></b></h1>
+                </a>
+            </li>
+            <li class="menu">
+                <a asp-area="" asp-controller="Home" asp-action="News">Новини</a>
+            </li>
+            <li class="menu">
+                <a asp-area="" asp-controller="Home" asp-action="About">Про нас</a>
+            </li>
+            <li class="menu">
+                <a asp-area="" asp-controller="Home" asp-action="Contact">Контакти</a>
+            </li>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="menu">
+                    <a asp-area="" asp-controller="Users" asp-action="Index">Мій профіль</a>
+                </li>
+
+                <li class="menu">
+                    <a asp-area="" asp-controller="Users" asp-action="UsersList">Користувачі</a>
+                </li>
+                <li>
+                    <form method="post" asp-controller="Account" asp-action="Logout">
+                        <input class="logout" type="submit" value=" Вийти" />
+                    </form>
+                </li>
+            }
+            <li>
+                <a asp-area="" asp-controller="Applications" asp-action="Create">Розпочати</a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer>
+        <p>LNU faculty of applied mathematics and informatics</p>
+        <p>
+            &copy; 2020 - <b>Business<i>Trip</i></b> - <a href="https://policies.google.com/privacy?hl=en">Terms & Privacy</a>
+        </p>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

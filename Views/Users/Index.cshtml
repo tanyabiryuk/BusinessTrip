@@ -1,0 +1,33 @@
+﻿@model BusinessTrip.Models.BusinessTripContext
+@using System.Security.Claims
+@using System.Linq;
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    User user = Model.User.FirstOrDefault(u => u.Email == User.Identity.Name);
+    if (((ClaimsIdentity)User.Identity).Claims
+                    .Where(c => c.Type == ClaimTypes.Role)
+                    .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
+}
+
+<section>
+    @*@if (user.RoleId==Model.Role.FirstOrDefault(r=>r.RoleName=="admin").Id)
+        {
+            <a class="edit-btn" asp-action="CreateUser">Створити нового користувача</a><br>
+        }*@
+    <table class="table">
+        <tr>
+            <td>@user.Email</td>
+            <td>@user.LastName</td>
+            <td>@user.FirstName</td>
+            <td>@user.FatherName</td>
+            <td>
+                <form asp-action="Delete" asp-controller="Users" asp-route-id="@user.Id" method="post">
+                    <a class="edit-btn" asp-action="Edit" asp-route-id="@user.Id">Редагувати</a>
+                    <a class="chpass-btn" asp-action="ChangePassword" asp-route-id="@user.Id">Змінити пароль</a>
+                </form>
+            </td>
+        </tr>
+    </table>
+</section>

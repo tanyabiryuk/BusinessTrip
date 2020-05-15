@@ -1,25 +1,41 @@
-﻿@{
+﻿@using System.Security.Claims
+@using System.Linq;
+@{
     ViewData["Title"] = "Home Page";
 }
 
+<section>
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (((ClaimsIdentity)User.Identity).Claims
+                    .Where(c => c.Type == ClaimTypes.Role)
+                    .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+        else { Layout = "~/Views/Shared/_Layout.cshtml"; }
+    }
 
     <body>
         <div class="text-center">
-            <h1 class="display-4">Welcome</h1>
-            <h3>Roles</h3>
-            <table>
-                <tr>
-                    <td>RoleId</td>
-                    <td>RoleName</td>
-                </tr>
-                @foreach(var role in Model)
-                {
-            <tr>
-                <td>@role.Id</td>
-                <td>@role.RoleName</td>
-            </tr>
-                }
-            </table>
+            <h1 class="display-4">
+                <span>
+                    Your  <b>Business<i>Trip</i></b><br />application
+                </span>
+            </h1>
+            <p>
+                BusinessTrip - це платформа для студентів та викладачів
+                Львівського національнрго університету імені Івана Франка.<br />
+                За допомогою <b>Business<i>Trip</i></b> Ви можете оформити заявку на відрядження
+                онлайн всього за кілька хвилин.<br />
+                Тепер для цього не треба оббивати пороги університету.<br />
+            </p><br />
+            <a class="edit-btn" asp-action="Create" asp-controller="Applications">Розпочати</a>
         </div>
     </body>
+</section>
+
+
+
+
+
+
+
 
