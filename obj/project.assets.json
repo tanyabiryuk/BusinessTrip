@@ -8991,23 +8991,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\userPC\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Dell\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\userPC\\Desktop\\Last\\BusinessTrip\\BusinessTrip.csproj",
+      "projectUniqueName": "C:\\Users\\Dell\\Downloads\\BusinessTrip\\BusinessTrip\\BusinessTrip.csproj",
       "projectName": "BusinessTrip",
-      "projectPath": "C:\\Users\\userPC\\Desktop\\Last\\BusinessTrip\\BusinessTrip.csproj",
-      "packagesPath": "C:\\Users\\userPC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\userPC\\Desktop\\Last\\BusinessTrip\\obj\\",
+      "projectPath": "C:\\Users\\Dell\\Downloads\\BusinessTrip\\BusinessTrip\\BusinessTrip.csproj",
+      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dell\\Downloads\\BusinessTrip\\BusinessTrip\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\userPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9072,7 +9068,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
