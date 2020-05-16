@@ -1,5 +1,6 @@
 ﻿namespace BusinessTrip.Models
 {
+    using BusinessTripMyVersion.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -52,24 +53,23 @@
         // Статус заявки
         [Display(Name = "Статус")]
         public int Status { get; set; }
+        public int LifecycleId { get; set; }
+        // Ссылка на жизненный цикл заявки - Навигационное свойство
+        public Lifecycle Lifecycle { get; set; }
 
         // Перечисление для статуса заявки
         public enum RequestStatus
+
         {
             Open = 1,
-            Distributed = 2,
-            Proccesing = 3,
-            Checking = 4,
-            Closed = 5
+          
+            Checking = 2,
+            Closed = 3,
+
+            Rejected=4
         }
         // Перечисление для приоритета заявки
-        public enum RequestPriority
-        {
-            Low = 1,
-            Medium = 2,
-            High = 3,
-            Critical = 4
-        }
+       
 
         public virtual App_Fundation App_fundation { get; set; }
         public virtual App_Transport app_transport { get; set; }

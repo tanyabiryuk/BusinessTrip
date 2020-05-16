@@ -1,0 +1,46 @@
+﻿
+@model IEnumerable<Application>
+@using BusinessTrip.Models
+@{
+    ViewBag.Title = "Список заявок";
+    int i = 0;
+}
+
+<h2>Изменить статус заявки</h2>
+<p>Всего заявок: @(Model.Count<Application>())</p>
+<table>
+
+    @foreach (var item in Model)
+    {
+        i++;
+        <tr>
+            <td><b>@i</b></td>
+            
+        
+           
+            @using (Html.BeginForm())
+            {
+        <td>
+            @Html.Hidden("requestId", item.Id)
+            @if (item.Status == (int)Application.RequestStatus.Open)
+            {
+                @Html.DropDownList("status", new[] { new SelectListItem() { Text = "На перевірці", Value = "2" },
+                    new SelectListItem() { Text = "Закрита", Value = "3" },new SelectListItem() { Text = "Відхилено", Value = "4" }})
+            }
+            else if (item.Status == (int)Application.RequestStatus.Checking)
+            {
+                @Html.DropDownList("status", new[] { new SelectListItem() { Text = "Закрита", Value = "3" }, new SelectListItem() { Text = "Відхилено", Value = "4" } })
+            }
+            else if (item.Status == (int)Application.RequestStatus.Rejected)
+            {
+                @Html.DropDownList("status", new[] { new SelectListItem() { Text = "Закрита", Value = "3" }, new SelectListItem() { Text = "На перевірці", Value = "2" } })
+            }
+
+        </td>
+                <td>
+                    <input type="submit" value="Изменить статус" />
+                </td>
+            }
+        </tr>
+    }
+</table>

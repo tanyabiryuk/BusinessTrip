@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Application>
+@using BusinessTrip.Models
+
+@{
+    ViewBag.Title = "Список заявок";
+    int i = 0; //счетчик
+}
+
+<h2>Список заявок</h2>
+<p>Всего заявок: @(Model.Count<Application>())</p>
+<table>
+
+    @foreach (var item in Model)
+    {
+        i++;
+    <tr>
+        <td><b>@i</b></td>
+        <td>
+            @if (item.Status == (int)Application.RequestStatus.Open)
+            {
+                <img src="Content/pictures/status1.png" title="Заявка відкрита" class="tdImage" />
+            }
+
+            else if (item.Status == (int)Application.RequestStatus.Checking)
+            {
+                <img src="../../Content/pictures/status4.png" title="Заявка на перевірці" class="tdImage" />
+            }
+            else if (item.Status == (int)Application.RequestStatus.Closed)
+            {
+                <img src="../../Content/pictures/status5.png" title="Заявку закрито" class="tdImage" />
+            }
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Lifecycle.Opened)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fullname)
+        </td>
+
+        <td>
+
+            <div>
+                <a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Описание заявки"
+                   href="Request/Details/@item.Id">
+                    <img src="../../Content/pictures/info.png" class="tdImage" title="Описание заявки" />
+                </a>
+            </div>
+        </td>
+
+        <td>
+            <div>
+                <a class="openDialog" data-dialog-id="lifecycleDialog" data-dialog-title="Жизненный цикл заявки"
+                   href="Request/Lifecycle/@item.LifecycleId">
+
+                </a>
+            </div>
+
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+        </td>
+        <td>
+            @Html.ActionLink("Згенерувати заяву", "GenerateApp", new { id = item.Id })
+        </td>
+        
+    </tr>
+
+    }
+
+</table>

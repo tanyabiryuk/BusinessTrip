@@ -1,0 +1,11 @@
+﻿@model BusinessTrip.Models.Application
+    <div>
+        <p align="right"><b>Подробные сведения: Заявка №  @Html.DisplayFor(m => m.Id)</b></p>
+        <p>Описание: @Html.DisplayFor(m => m.Purpose)</p>
+        <p>Кабинет: @Html.DisplayFor(m => m.Start_date)</p>
+        <p>Категория: @Html.DisplayFor(m => m.Trip_city)</p>
+        <p>Комментарий: @Html.DisplayFor(m => m.Trip_city)</p>
+        <td>
+            @Html.ActionLink("Pdf", "CreatePDF")
+        </td>
+    </div>
