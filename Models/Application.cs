@@ -2,10 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     //заявка
     public partial class Application
     {
+        
         public int Id { get; set; }
         public int UserId { get; set; }
         public string Email { get; set; }
@@ -43,6 +45,31 @@
         public int App_fundation_Id { get; set; }
         //адреса установи відрядження
         public string InstitutionLocation { get; set; }
+        // Комментарий к заявке
+        [Display(Name = "Коментар")]
+        [MaxLength(200, ErrorMessage = "Превышена максимальная длина записи")]
+        public string Comment { get; set; }
+        // Статус заявки
+        [Display(Name = "Статус")]
+        public int Status { get; set; }
+
+        // Перечисление для статуса заявки
+        public enum RequestStatus
+        {
+            Open = 1,
+            Distributed = 2,
+            Proccesing = 3,
+            Checking = 4,
+            Closed = 5
+        }
+        // Перечисление для приоритета заявки
+        public enum RequestPriority
+        {
+            Low = 1,
+            Medium = 2,
+            High = 3,
+            Critical = 4
+        }
 
         public virtual App_Fundation App_fundation { get; set; }
         public virtual App_Transport app_transport { get; set; }
