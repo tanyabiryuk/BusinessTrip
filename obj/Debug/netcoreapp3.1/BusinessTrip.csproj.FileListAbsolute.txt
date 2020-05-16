@@ -913,5 +913,4 @@ D:\Поект остання версія\BusinessTrip\obj\Debug\netcoreapp3.1\R
 D:\Поект остання версія\BusinessTrip\obj\Debug\netcoreapp3.1\Razor\Views\Applications\ChangeStatusUser.cshtml.g.cs
 D:\Поект остання версія\BusinessTrip\obj\Debug\netcoreapp3.1\Razor\Views\Applications\GenerateApp.cshtml.g.cs
 D:\Поект остання версія\BusinessTrip\bin\Debug\netcoreapp3.1\DinkToPdf.dll
-D:\Поект остання версія\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.MvcApplicationPartsAssemblyInfo.cache
 D:\Поект остання версія\BusinessTrip\bin\Debug\netcoreapp3.1\itextsharp.dll

@@ -1,6 +1,6 @@
 ﻿namespace BusinessTrip.Models
 {
-    using BusinessTripMyVersion.Models;
+    
     using Microsoft.EntityFrameworkCore;
     using System;
     using System.Data.Entity.Infrastructure;
