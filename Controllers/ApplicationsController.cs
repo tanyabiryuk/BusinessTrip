@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Authorization;
 using Syncfusion.HtmlConverter;
 using Syncfusion.Pdf;
 using static BusinessTrip.Models.Application;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using Rotativa.AspNetCore;
 
 namespace BusinessTrip.Controllers
 {
@@ -22,33 +25,32 @@ namespace BusinessTrip.Controllers
             _context = context;
         }
 
+       
 
-      
-        //public ActionResult GenerateApp(int id)
-        //{
-        //    Application request = _context.Application.Find(id);
+        public IActionResult ExportToPDF()
+        {
+            return new ViewAsPdf();
+     
+        }
 
-        //    if (request != null)
-        //    {
-        //        //Initialize HTML to PDF converter 
-        //        HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-        //        WebKitConverterSettings settings = new WebKitConverterSettings();
-        //        //Set WebKit path
-        //        settings.WebKitPath = Server.MapPath("~/QtBinaries");
-        //        //Assign WebKit settings to HTML converter
-        //        htmlConverter.ConverterSettings = settings;
-        //        //Get the current URL
-        //        string url = HttpContext.Current.Request.Url.AbsoluteUri;
-        //        //Convert URL to PDF
-        //        PdfDocument document = htmlConverter.Convert(url);
-        //        //Save the document
-        //        document.Save("Output.pdf", HttpContext.Current.Response, HttpReadType.Save);
+        public IActionResult GenerateApp(int id)
+        {
+            Application request = _context.Application.Find(id);
+          
+
+            if (request != null)
+            {
 
 
-        //        return PartialView("GenerateApp", request);
-        //    }
-        //    return View("RequestList");
-        //}
+
+                //return PartialView("GenerateApp", request);
+                return new ViewAsPdf("GenerateApp", request) {
+
+                    PageSize = Rotativa.AspNetCore.Options.Size.A4
+                };
+            }
+            return View("RequestList");
+        }
         //заявки користувача
         [Authorize(Roles = "user")]
        

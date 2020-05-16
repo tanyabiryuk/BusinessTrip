@@ -914,3 +914,12 @@ D:\Поект остання версія\BusinessTrip\obj\Debug\netcoreapp3.1\R
 D:\Поект остання версія\BusinessTrip\obj\Debug\netcoreapp3.1\Razor\Views\Applications\GenerateApp.cshtml.g.cs
 D:\Поект остання версія\BusinessTrip\bin\Debug\netcoreapp3.1\DinkToPdf.dll
 D:\Поект остання версія\BusinessTrip\bin\Debug\netcoreapp3.1\itextsharp.dll
+D:\Поект остання версія\BusinessTrip\bin\Debug\netcoreapp3.1\Syncfusion.Compression.Portable.dll
+D:\Поект остання версія\BusinessTrip\bin\Debug\netcoreapp3.1\Syncfusion.HtmlConverter.Portable.dll
+D:\Поект остання версія\BusinessTrip\bin\Debug\netcoreapp3.1\Syncfusion.Pdf.Portable.dll
+D:\Поект остання версія\BusinessTrip\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\Поект остання версія\BusinessTrip\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+D:\Поект остання версія\BusinessTrip\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Поект остання версія\BusinessTrip\bin\Debug\netcoreapp3.1\Rotativa.AspNetCore.dll
+D:\Поект остання версія\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.MvcApplicationPartsAssemblyInfo.cs
+D:\Поект остання версія\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.MvcApplicationPartsAssemblyInfo.cache
