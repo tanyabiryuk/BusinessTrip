@@ -52,7 +52,7 @@ namespace BusinessTrip.Controllers
             return View("RequestList");
         }
         //заявки користувача
-        [Authorize(Roles = "user")]
+        [Authorize]
        
         public IActionResult Index()
         {

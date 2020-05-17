@@ -222,49 +222,6 @@ namespace BusinessTrip.Controllers
 
             return RedirectToAction("EditRole");
         }
-        //[Authorize(Roles = "admin")]
-        //public async Task<IActionResult> EditRole(string userId)
-        //{
-        //    // получаем пользователя
-        //    User user = _db.User.FirstOrDefault(u=>u.Id.ToString()==userId);
-        //    if (user != null)
-        //    {
-        //        // получем список ролей пользователя
-        //        var userRole = user.RoleId; 
-        //        var allRoles = _db.Role.ToList();
-        //        ChangeRoleViewModel model = new ChangeRoleViewModel
-        //        {
-        //            UserId = user.Id,
-        //            UserEmail = user.Email,
-        //            UserRoleId = userRole,
-        //            AllRoles = allRoles
-        //        };
-        //        return View(model);
-        //    }
-
-        //    return NotFound();
-        //}
-
-        //[Authorize(Roles = "admin")]
-        //[HttpPost]
-        //public async Task<IActionResult> EditRole(int userId, string role)
-        //{
-        //    // получаем пользователя
-        //    User user = _db.User.FirstOrDefault(u=>u.Id == userId);
-        //    if (user != null)
-        //    {
-        //        // получаем роль
-        //        var changedRoleId = _db.Role.FirstOrDefault(r => r.RoleName == role ).Id;
-        //        // получаем все роли
-        //        var allRoles = _db.Role.ToList();
-
-        //        user.RoleId = changedRoleId;
-        //        _db.Update(user);
-
-        //        return RedirectToAction("UserList");
-        //    }
-
-        //    return NotFound();
-        //}
+      
     }
 }
