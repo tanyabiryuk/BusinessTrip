@@ -3,12 +3,21 @@
     Layout = null;
 }
 
-<div>
-    <p align="right"><b>Подробные сведения: Заявка №  @Html.DisplayFor(m => m.Id)</b></p>
-    <p>Описание: @Html.DisplayFor(m => m.Purpose)</p>
-    <p>Кабинет: @Html.DisplayFor(m => m.Start_date)</p>
-    <p>Категория: @Html.DisplayFor(m => m.Trip_city)</p>
-    <p>Комментарий: @Html.DisplayFor(m => m.Trip_city)</p>
-    <td>
-    </td>
-</div>
+    <div>
+        <p align="right">Ректору</p>
+        <p align="right">Львівського національного</p>
+        <p align="right">університету</p>
+        <p align="right">імені Івана Франка</p>
+        <p align="right">проф. Мельнику В. П. </p>
+        <p align="right">@Html.DisplayFor(m => m.Main_place_of_work)</p>
+        <p align="right">@Html.DisplayFor(m => m.Position_in_combination) </p>
+        <p align="right">@Html.DisplayFor(m => m.Fullname) </p>
+        <p align="center">Заява</p>
+        <p align="center">
+            Прошу вас відрядити мене @Html.DisplayFor(m => m.Saving_salary) y @Html.DisplayFor(m => m.Trip_city) з
+            метою @Html.DisplayFor(m => m.Purpose)
+        </p>
+
+        <td>
+        </td>
+    </div>

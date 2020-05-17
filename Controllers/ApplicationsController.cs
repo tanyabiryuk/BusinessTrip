@@ -95,7 +95,7 @@ namespace BusinessTrip.Controllers
                 _context.Lifecycle.Remove(lifecycle);
                 _context.SaveChanges();
             }
-            else if (request != null)
+            else if (request != null&&user.RoleId==1)
             {
                 Lifecycle lifecycle = _context.Lifecycle.Find(request.LifecycleId);
                 _context.Lifecycle.Remove(lifecycle);
