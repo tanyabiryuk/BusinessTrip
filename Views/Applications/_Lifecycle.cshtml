@@ -1,0 +1,14 @@
+﻿
+
+@model BusinessTrip.Models.Lifecycle
+
+    <div>
+        <p><b>Заявка № @Html.DisplayFor(m => m.Id)</b></p>
+        <p>Життєвий цикл</p>
+        <p>Відкрита:  @Html.DisplayFor(m => m.Opened)</p>
+
+
+        <p>Перевіряється:  @Html.DisplayFor(m => m.Checking)</p>
+        <p>Відхилено:  @Html.DisplayFor(m => m.Rejected)</p>
+        <p>Закрита:  @Html.DisplayFor(m => m.Closed)</p>
+    </div>

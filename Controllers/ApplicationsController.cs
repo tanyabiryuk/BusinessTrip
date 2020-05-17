@@ -133,6 +133,16 @@ namespace BusinessTrip.Controllers
             return NotFound();
             
         }
+        public ActionResult Lifecycle(int id)
+        {
+            Lifecycle lifecycle = _context.Lifecycle.Where(m => m.Id == id).First();
+
+            if (lifecycle != null)
+            {
+                return PartialView("_Lifecycle", lifecycle);
+            }
+            return View("Index");
+        }
 
         // POST: Applications/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 

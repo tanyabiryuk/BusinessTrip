@@ -1123,3 +1123,4 @@ C:\Users\Dell\Desktop\BusinessTrip\BusinessTrip\obj\Debug\netcoreapp3.1\Business
 C:\Users\Dell\Desktop\BusinessTrip\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.pdb
 C:\Users\Dell\Desktop\BusinessTrip\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.genruntimeconfig.cache
 D:\Поект остання версія\BusinessTrip\obj\Debug\netcoreapp3.1\Razor\Views\Applications\_Details.cshtml.g.cs
+D:\Поект остання версія\BusinessTrip\obj\Debug\netcoreapp3.1\Razor\Views\Applications\_Lifecycle.cshtml.g.cs

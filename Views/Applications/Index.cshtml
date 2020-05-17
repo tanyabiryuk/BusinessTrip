@@ -58,7 +58,9 @@
         <td>
             <div>
                 <a class="openDialog" data-dialog-id="lifecycleDialog" data-dialog-title="Життєвий цикл заявки"
-                   href="Request/Lifecycle/@item.LifecycleId">
+                   href="Applications/Lifecycle/@item.LifecycleId">
+
+                    <img src="~/Content/pictures/lifecycle.png" class="tdImage" title="Життєвий цикл заявки" />
 
                 </a>
             </div>
@@ -66,8 +68,12 @@
         </td>
 
 
+
+
         <td>
-            @Html.ActionLink("Видалити", "Delete", new { id = item.Id })
+            <a asp-action="Delete" asp-route-id="@item.Id">
+                <img src="~/Content/pictures/deleteApp.png" class="tdImage" title="Видалити заявку" />
+            </a>
         </td>
     </tr>
 
