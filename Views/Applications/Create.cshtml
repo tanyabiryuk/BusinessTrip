@@ -206,7 +206,7 @@
                 <br /><hr />
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Start_date, "10. Вкажіть дату завершення відрядження")
+                    @Html.LabelFor(model => model.End_date, "10. Вкажіть дату завершення відрядження")
                     <div>
                         @Html.TextBoxFor(model => model.End_date, new { @type = "date", @class = "form-control datepicker" })
                         @Html.ValidationMessageFor(model => model.End_date, "", new { @class = "text-danger" })
@@ -225,18 +225,18 @@
 
                 <br /><hr />
                 <div class="form-group" id="transport" style="display:none">
-                    @Html.LabelFor(model => model.App_transport_Id, "12. Вкажіть транспорт, яким будете подорожувати (для відряджень по Україні).")
+                    <Label>12. Вкажіть транспорт, яким будете подорожувати (для відряджень по Україні)</Label>
                     <div>
-                        <input type="checkbox" id="checkTransport1" value="Залізничий">
+                        <input type="checkbox" name="Transport" id="checkTransport1" value="Залізничий">
                         <label for="checkTransport1">Залізничий</label><br>
-                        <input type="checkbox" id="checkTransport2" value="Автомобільний">
+                        <input type="checkbox" name="Transport" id="checkTransport2" value="Автомобільний">
                         <label for="checkTransport2">Автомобільний</label><br>
-                        <input type="checkbox" id="checkTransport3" value="Літак">
+                        <input type="checkbox" name="Transport" id="checkTransport3" value="Літак">
                         <label for="checkTransport3">Літак</label><br>
-                        <input type="checkbox" id="checkTransport4" value="Інше">
+                        <input type="checkbox" name="Transport" id="checkTransport4" value="Інше">
                         <label for="checkTransport4">Інше:</label><br>
                         <div id="otherTransport" style="display:none">
-                            @Html.EditorFor(model => model.Institution)
+                            <input type="text" name="OtherTransport"/>
                         </div>
                     </div>
                     <script type="text/javascript">
@@ -285,18 +285,18 @@
                 <br /><hr />
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.App_fundation_Id, "14. Вкажіть підставу відрядження ")
+                    <label>14. Вкажіть підставу відрядження</Label>
                     <div>
-                        <input type="checkbox" id="checkFoundation1" value="запрошення">
+                        <input type="checkbox" name="Foundation" id="checkFoundation1" value="запрошення">
                         <label for="checkFoundation1">запрошення</label><br>
-                        <input type="checkbox" id="checkFoundation2" value="витяг з протоколу засідання Вченої Ради факультету">
+                        <input type="checkbox" name="Foundation" id="checkFoundation2" value="витяг з протоколу засідання Вченої Ради факультету">
                         <label for="checkFoundation2">витяг з протоколу засідання Вченої Ради факультету</label><br>
-                        <input type="checkbox" id="checkFoundation3" value="рапорт проректора">
+                        <input type="checkbox" name="Foundation" id="checkFoundation3" value="рапорт проректора">
                         <label for="checkFoundation3">рапорт проректора</label><br>
-                        <input type="checkbox" id="checkFoundation4" value="Інше">
+                        <input type="checkbox" name="Foundation" id="checkFoundation4" value="Інше">
                         <label for="checkFoundation4">Інше:</label><br>
                         <div id="otherFoundation" style="display:none">
-                            <input type="text" />
+                            <input type="text" name="OtherFoundation"/>
                         </div>
                     </div>
 
@@ -324,7 +324,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" />
+                        <input type="submit" asp-route="@Model"/>
                     </div>
                 </div>
             </div>

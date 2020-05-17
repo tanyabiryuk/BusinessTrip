@@ -117,10 +117,10 @@ namespace BusinessTrip.Controllers
             User user = _context.User.Where(m => m.Email == HttpContext.User.Identity.Name).FirstOrDefault();
             if (user != null)
             {
-
                 return View();
             }
             return NotFound();
+            
         }
 
         // POST: Applications/Create
@@ -128,12 +128,14 @@ namespace BusinessTrip.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Application request)
+        public IActionResult Create(Application request, 
+            List<string> Transport, string OtherTransport, 
+            List<string> Foundation, string OtherFoundation)
         {   // получаем текущего пользователя
             User user = _context.User.Where(m => m.Email == HttpContext.User.Identity.Name).FirstOrDefault();
             if (user == null)
             {
-                return RedirectToAction("LogOff", "Account");
+                return RedirectToAction("Logout", "Account");
             }
             if (ModelState.IsValid)
             {
@@ -152,7 +154,45 @@ namespace BusinessTrip.Controllers
                 // указываем пользователя заявки
                 request.UserId = user.Id;
 
-                
+                string temp;
+                foreach(string f in Foundation)
+                {
+                    temp = f;
+                    if (f == "Інше") temp = OtherFoundation;
+                    if(!_context.Foundation.Select(n=>n.Trip_Foundation).Contains(temp))
+                    {
+                        _context.Foundation.Add(new Foundation { Trip_Foundation = temp });
+                        _context.SaveChanges();
+                    }
+                    _context.App_Fundation.Add(new App_Fundation
+                    {
+                        ApplicationId = request.Id,
+                        FundationId = _context.Foundation.FirstOrDefault(n => n.Trip_Foundation == temp).Id
+                    });
+                    _context.SaveChanges();
+                }
+
+                foreach(string t in Transport)
+                {
+                    temp = t;
+                    if (t == "Інше") temp = OtherTransport;
+                    if (!_context.Transport.Select(n => n.TransportType).Contains(temp))
+                    {
+                        _context.Transport.Add(new Transport { TransportType = temp });
+                        _context.SaveChanges();
+                    }
+                    _context.App_Transport.Add(new App_Transport
+                    {
+                        ApplicationId = request.Id,
+                        TransportId = _context.Transport.FirstOrDefault(n => n.TransportType == temp).Id
+                    });
+                    _context.SaveChanges();
+                }
+
+                request.App_fundation_Id = request.Id;
+
+                request.App_transport_Id = request.Id;
+
                 //Добавляем заявку
                 _context.Application.Add(request);
                 _context.SaveChanges();
