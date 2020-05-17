@@ -25,7 +25,18 @@ namespace BusinessTrip.Controllers
             _context = context;
         }
 
-       
+        // Просмотр подробных сведений о заявке
+        public ActionResult Details(int id)
+        {
+            Application application = _context.Application.Find(id);
+
+            if (application != null)
+            {
+
+                return PartialView("_Details", application);
+            }
+            return View("Index");
+        }
 
         public IActionResult ExportToPDF()
         {

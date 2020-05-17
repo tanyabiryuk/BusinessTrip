@@ -1,0 +1,93 @@
+﻿@model BusinessTrip.Models.Application
+
+<!DOCTYPE htm>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>caption-side</title>
+    <style>
+        table {
+            width: 80%; /* Ширина таблицы */
+            border-collapse: collapse; /* Убираем двойную рамку между ячейками */
+        }
+
+        td {
+            border: 1px solid green; /* Параметры границы */
+            padding: 5px; /* Поля в ячейке */
+        }
+
+        caption {
+            caption-side: top; /* Заголовок под таблицей */
+        }
+    </style>
+</head>
+<body>
+   
+    <table align="center">
+        <caption><b>Деталі заявки: Заявка №  @Html.DisplayFor(m => m.Id)</b></caption>
+
+        <tr>
+            <td><b>Email:</b></td>
+            <td>@Html.DisplayFor(m => m.Email)</td>
+
+
+        </tr>
+        <tr>
+            <td><b>Прізвище,ім'я,по батькові</b></td>
+            <td>@Html.DisplayFor(m => m.Fullname)</td>
+        </tr>
+        <tr>
+            <td><b> Підрозділ та посада за основним місцем праці</b></td>
+            <td>@Html.DisplayFor(m => m.Main_place_of_work)</td>
+        </tr>
+        <tr>
+            <td><b> Відділ та посада за сумісництвом (за наявності)</b></td>
+            <td>@Html.DisplayFor(m => m.Position_in_combination)</td>
+        </tr>
+        <tr>
+            <td><b> Тип відрядження</b></td>
+            <td>@Html.DisplayFor(m => m.Type)</td>
+        </tr>
+        <tr>
+            <td><b> Мета відрядження</b></td>
+            <td>@Html.DisplayFor(m => m.Purpose)</td>
+        </tr>
+        <tr>
+            <td><b> Вид збереження заробітної плати</b></td>
+            <td>@Html.DisplayFor(m => m.Saving_salary)</td>
+        </tr>
+        <tr>
+            <td><b> Місто відрядження</b></td>
+            <td>@Html.DisplayFor(m => m.Trip_city)</td>
+        </tr>
+        <tr>
+            <td><b> Країна відрядження</b></td>
+            <td>@Html.DisplayFor(m => m.Trip_country)</td>
+        </tr>
+        <tr>
+            <td><b> Установа, куди відряджаєтесь</b></td>
+            <td>@Html.DisplayFor(m => m.Institution)</td>
+        </tr>
+        <tr>
+            <td><b>Адреса установи куди відряджаєтесь</b></td>
+            <td>@Html.DisplayFor(m => m.InstitutionLocation)</td>
+        </tr>
+        <tr>
+            <td><b>Дата початку відрядження</b></td>
+            <td>@Html.DisplayFor(m => m.Start_date)</td>
+        </tr>
+        <tr>
+            <td><b>Дата завершення відрядження</b></td>
+            <td>@Html.DisplayFor(m => m.End_date)</td>
+        </tr>
+        <tr>
+            <td><b>Маршрут</b></td>
+            <td>@Html.DisplayFor(m => m.Itinerary)</td>
+        </tr>
+        <tr>
+            <td><b>Маршрут</b></td>
+            <td>@Html.DisplayFor(m => m.Itinerary)</td>
+        </tr>
+    </table>
+</body>
+</html> 

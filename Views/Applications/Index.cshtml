@@ -47,16 +47,16 @@
         <td>
 
             <div>
-                <a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Описание заявки"
-                   href="Request/Details/@item.Id">
-                    <img src="../../Content/pictures/info.png" class="tdImage" title="Описание заявки" />
+                <a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Деталі заявки"
+                   href="Applications/Details/@item.Id">
+                    <img src="../../Content/pictures/info.png" class="tdImage" title="Деталі заявки" />
                 </a>
             </div>
         </td>
 
         <td>
             <div>
-                <a class="openDialog" data-dialog-id="lifecycleDialog" data-dialog-title="Жизненный цикл заявки"
+                <a class="openDialog" data-dialog-id="lifecycleDialog" data-dialog-title="Життєвий цикл заявки"
                    href="Request/Lifecycle/@item.LifecycleId">
 
                 </a>
@@ -64,7 +64,7 @@
 
         </td>
 
-     
+
         <td>
             @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
         </td>

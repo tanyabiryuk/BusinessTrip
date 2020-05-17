@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dell\\Desktop\\BusinessTrip\\BusinessTrip\\BusinessTrip.csproj": {}
+    "D:\\Поект остання версія\\BusinessTrip\\BusinessTrip.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dell\\Desktop\\BusinessTrip\\BusinessTrip\\BusinessTrip.csproj": {
+    "D:\\Поект остання версія\\BusinessTrip\\BusinessTrip.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dell\\Desktop\\BusinessTrip\\BusinessTrip\\BusinessTrip.csproj",
+        "projectUniqueName": "D:\\Поект остання версія\\BusinessTrip\\BusinessTrip.csproj",
         "projectName": "BusinessTrip",
-        "projectPath": "C:\\Users\\Dell\\Desktop\\BusinessTrip\\BusinessTrip\\BusinessTrip.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dell\\Desktop\\BusinessTrip\\BusinessTrip\\obj\\",
+        "projectPath": "D:\\Поект остання версія\\BusinessTrip\\BusinessTrip.csproj",
+        "packagesPath": "C:\\Users\\ola\\.nuget\\packages\\",
+        "outputPath": "D:\\Поект остання версія\\BusinessTrip\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ola\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -99,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
