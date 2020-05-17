@@ -176,50 +176,95 @@ namespace BusinessTrip.Controllers
             return View(user);
         }
 
-        ////редагувати роль
+        //////редагувати роль
+         
         [Authorize(Roles = "admin")]
-        public async Task<IActionResult> EditRole(string userId)
+        public IActionResult EditRole()
         {
-            // получаем пользователя
-            User user = _db.User.FirstOrDefault(u=>u.Id.ToString()==userId);
+            // получаем текущего пользователя
+            User user = _db.User.Where(m => m.Email == HttpContext.User.Identity.Name).First();
             if (user != null)
             {
-                // получем список ролей пользователя
-                var userRole = user.RoleId; 
-                var allRoles = _db.Role.ToList();
-                ChangeRoleViewModel model = new ChangeRoleViewModel
-                {
-                    UserId = user.Id,
-                    UserEmail = user.Email,
-                    UserRoleId = userRole,
-                    AllRoles = allRoles
-                };
-                return View(model);
-            }
+                // var userRole = user.RoleId; 
+                // var allRoles = _db.Role.ToList();
+                //var users = _db.User.Include(r => r.Role);
 
+                var users = _db.User.Include(r => r.Role);
+                                  
+                return View(users);
+
+                
+            }
             return NotFound();
         }
 
+       
         [Authorize(Roles = "admin")]
         [HttpPost]
-        public async Task<IActionResult> EditRole(int userId, string role)
+        public IActionResult EditRole(int userId, int roleId)
         {
-            // получаем пользователя
-            User user = _db.User.FirstOrDefault(u=>u.Id == userId);
-            if (user != null)
+            User user = _db.User.Where(m => m.Email == HttpContext.User.Identity.Name).First();
+            if (user == null)
             {
-                // получаем роль
-                var changedRoleId = _db.Role.FirstOrDefault(r => r.RoleName == role ).Id;
-                // получаем все роли
-                var allRoles = _db.Role.ToList();
+                return NotFound();
+            }
+            User user1 = _db.User.Find(userId);
+            if (user1 != null)
+            {
 
-                user.RoleId = changedRoleId;
-                _db.Update(user);
+                user1.RoleId = roleId;
 
-                return RedirectToAction("UserList");
+
+
+                _db.Entry(user1).State = EntityState.Modified;
+                _db.SaveChanges();
             }
 
-            return NotFound();
+            return RedirectToAction("EditRole");
         }
+        //[Authorize(Roles = "admin")]
+        //public async Task<IActionResult> EditRole(string userId)
+        //{
+        //    // получаем пользователя
+        //    User user = _db.User.FirstOrDefault(u=>u.Id.ToString()==userId);
+        //    if (user != null)
+        //    {
+        //        // получем список ролей пользователя
+        //        var userRole = user.RoleId; 
+        //        var allRoles = _db.Role.ToList();
+        //        ChangeRoleViewModel model = new ChangeRoleViewModel
+        //        {
+        //            UserId = user.Id,
+        //            UserEmail = user.Email,
+        //            UserRoleId = userRole,
+        //            AllRoles = allRoles
+        //        };
+        //        return View(model);
+        //    }
+
+        //    return NotFound();
+        //}
+
+        //[Authorize(Roles = "admin")]
+        //[HttpPost]
+        //public async Task<IActionResult> EditRole(int userId, string role)
+        //{
+        //    // получаем пользователя
+        //    User user = _db.User.FirstOrDefault(u=>u.Id == userId);
+        //    if (user != null)
+        //    {
+        //        // получаем роль
+        //        var changedRoleId = _db.Role.FirstOrDefault(r => r.RoleName == role ).Id;
+        //        // получаем все роли
+        //        var allRoles = _db.Role.ToList();
+
+        //        user.RoleId = changedRoleId;
+        //        _db.Update(user);
+
+        //        return RedirectToAction("UserList");
+        //    }
+
+        //    return NotFound();
+        //}
     }
 }

@@ -1,26 +1,76 @@
-﻿@using Microsoft.AspNetCore.Identity
-@model BusinessTrip.ViewModels.ChangeRoleViewModel
-@using System.Security.Claims
-@using System.Linq;
+﻿@*@using Microsoft.AspNetCore.Identity
+    @model BusinessTrip.ViewModels.ChangeRoleViewModel
+    @using System.Security.Claims
+    @using System.Linq;
+    @{
+        if (((ClaimsIdentity)User.Identity).Claims
+                        .Where(c => c.Type == ClaimTypes.Role)
+                        .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+        else { Layout = "~/Views/Shared/_Layout.cshtml"; }
+    }
+
+    <section>
+        <h2>Змінити роль для користувача @Model.UserEmail</h2>
+
+        <form asp-action="Edit" method="post">
+            <input type="hidden" name="userId" value="@Model.UserId" />
+            <div class="form-group">
+                @foreach (var role in Model.AllRoles)
+                {
+                    <input type="radio" name="roles" value="@role.RoleName"
+                           @(Model.UserRoleId == role.Id) ? "checked=\" checked\"" : "" ) />@role.RoleName <br />
+                    }
+            </div>
+            <button class="submit" type="submit">Зберегти</button>
+        </form>
+    </section>*@
+
+@model IEnumerable<User>
+@using BusinessTrip.Models
 @{
-    if (((ClaimsIdentity)User.Identity).Claims
-                    .Where(c => c.Type == ClaimTypes.Role)
-                    .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
-    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
+    ViewBag.Title = "Список user";
+    int i = 0;
 }
 
-<section>
-    <h2>Змінити роль для користувача @Model.UserEmail</h2>
+<h2>Изменить role user</h2>
+<p>Всего заявок: @(Model.Count<User>())</p>
+<table>
 
-    <form asp-action="Edit" method="post">
-        <input type="hidden" name="userId" value="@Model.UserId" />
-        <div class="form-group">
-            @foreach (var role in Model.AllRoles)
-            {
-                <input type="radio" name="roles" value="@role.RoleName"
-                       @(Model.UserRoleId == role.Id) ? "checked=\" checked\"" : "" ) />@role.RoleName <br />
-                }
-        </div>
-        <button class="submit" type="submit">Зберегти</button>
-    </form>
-</section>
+    @foreach (var item in Model)
+    {
+        i++;
+    <tr>
+        <td><b>@i</b></td>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Role)
+        </td>
+
+        @using (Html.BeginForm())
+        {
+    <td>
+        @Html.Hidden("userId", item.Id)
+
+        @if (item.RoleId == 1)
+        {
+            @Html.DropDownList("roleId", new[] { new SelectListItem() { Text = "admin", Value = "1" }, new SelectListItem() { Text = "user", Value = "2" } })
+        }
+        @if (item.RoleId == 2)
+        {
+            @Html.DropDownList("roleId", new[] { new SelectListItem() { Text = "admin", Value = "1" }, new SelectListItem() { Text = "user", Value = "2" } })
+        }
+
+
+    </td>
+            <td>
+                <input type="submit" value="Изменить статус" />
+            </td>
+        }
+    </tr>
+    }
+</table>

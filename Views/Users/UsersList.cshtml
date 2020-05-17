@@ -25,7 +25,7 @@
                 <td>
                     <form asp-action="Delete" asp-route-id="@user.Id" method="post">
                         <a class="edit-btn" asp-action="Edit" asp-route-id="@user.Id">Редагувати</a>
-                        <a class="chpass-btn" asp-action="EditRole" asp-route-userid="@user.Id">Роль</a>
+                        @*<a class="chpass-btn" asp-action="EditRole" asp-route-userid="@user.Id">Роль</a>*@
                         <a class="edit-btn" asp-action="ChangePassword" asp-route-id="@user.Id">Змінити пароль</a>
                         <button type="submit" class="delete-btn">
                             Видвлити
