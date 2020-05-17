@@ -6,6 +6,7 @@
     int i = 0; //счетчик
 }
 
+
 <h2>Список моїх заявок</h2>
 <p>Всього заявок: @(Model.Count<Application>())</p>
 <table>
@@ -18,20 +19,20 @@
         <td>
             @if (item.Status == (int)Application.RequestStatus.Open)
             {
-                <img src="Content/pictures/status1.png" title="Заявка відкрита" class="tdImage" />
+                <img src="~/Content/pictures/open (1).png" title="Заявка відкрита" class="tdImage" />
             }
 
             else if (item.Status == (int)Application.RequestStatus.Checking)
             {
-                <img src="../../Content/pictures/status4.png" title="Заявка на перевірці" class="tdImage" />
+                <img src="~/Content/pictures/view.png" title="Заявка на перевірці" class="tdImage" />
             }
             else if (item.Status == (int)Application.RequestStatus.Rejected)
             {
-                <img src="../../Content/pictures/status4.png" title="Заявку відхилено" class="tdImage" />
+                <img src="~/Content//pictures/rejected.png" title="Заявку відхилено" class="tdImage" />
             }
             else if (item.Status == (int)Application.RequestStatus.Closed)
             {
-                <img src="../../Content/pictures/status5.png" title="Заявку закрито" class="tdImage" />
+                <img src="~/Content/pictures/closed.png" title="Заявку закрито" class="tdImage" />
             }
         </td>
 
@@ -49,7 +50,7 @@
             <div>
                 <a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Деталі заявки"
                    href="Applications/Details/@item.Id">
-                    <img src="../../Content/pictures/info.png" class="tdImage" title="Деталі заявки" />
+                    <img src="~/Content/pictures/details.png" class="tdImage" title="Деталі заявки" />
                 </a>
             </div>
         </td>

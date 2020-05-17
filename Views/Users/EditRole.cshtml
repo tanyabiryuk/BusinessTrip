@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<User>
 @using BusinessTrip.Models
 @{
-    ViewBag.Title = "Список user";
+    ViewBag.Title = "Змінити роль користувача";
     int i = 0;
 }
 
-<h2>Изменить role user</h2>
-<p>Всего заявок: @(Model.Count<User>())</p>
+    <h2>Змінити роль користувача</h2>
+<p>Всього користувачів: @(Model.Count<User>())</p>
 <table>
 
     @foreach (var item in Model)
@@ -41,7 +41,7 @@
 
     </td>
             <td>
-                <input type="submit" value="Изменить статус" />
+                <input type="submit" value="Зберегти зміни" />
             </td>
         }
     </tr>

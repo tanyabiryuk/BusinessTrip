@@ -130,10 +130,13 @@ header {
 footer {
     margin-left: -2vw;
     width: 100vw;
-    background-color:black;
+    background-color: black;
     padding: 1px;
     text-align: center;
     color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
 
 div h2 {
@@ -143,6 +146,9 @@ div h2 {
 
 footer p {
     font-size: small;
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
 
 section h1, section h2, section h3, section h4, section h5, section label, section p {

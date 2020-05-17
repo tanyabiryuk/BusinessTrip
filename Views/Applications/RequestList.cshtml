@@ -18,16 +18,20 @@
         <td>
             @if (item.Status == (int)Application.RequestStatus.Open)
             {
-                <img src="~/Content/pictures/status1.png" title="Заявка відкрита" class="tdImage" />
+                <img src="~/Content/pictures/open (1).png" title="Заявка відкрита" class="tdImage" />
             }
 
             else if (item.Status == (int)Application.RequestStatus.Checking)
             {
-                <img src="../../Content/pictures/status4.png" title="Заявка на перевірці" class="tdImage" />
+                <img src="~/Content/pictures/view.png" title="Заявка на перевірці" class="tdImage" />
             }
             else if (item.Status == (int)Application.RequestStatus.Closed)
             {
-                <img src="../../Content/pictures/status5.png" title="Заявку закрито" class="tdImage" />
+                <img src="~/Content/pictures/closed.png" title="Заявку закрито" class="tdImage" />
+            }
+            else if (item.Status == (int)Application.RequestStatus.Rejected)
+            {
+                <img src="~/Content/pictures/rejected.png" title="Заявку відхилено" class="tdImage" />
             }
         </td>
 
@@ -45,7 +49,7 @@
             <div>
                 <a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Деталі заявки"
                    href="Details/@item.Id">
-                    <img src="../../Content/pictures/info.png" class="tdImage" title="Деталі заявки" />
+                    <img src="~/Content/pictures/details.png" class="tdImage" title="Деталі заявки" />
                 </a>
             </div>
         </td>
@@ -63,6 +67,7 @@
 
         <td>
             @Html.ActionLink("Видалити", "Delete", new { id = item.Id })
+           
         </td>
         <td>
             @Html.ActionLink("Згенерувати заяву", "GenerateApp", new { id = item.Id })
