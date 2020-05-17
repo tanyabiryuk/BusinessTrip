@@ -6,8 +6,8 @@
     int i = 0; //счетчик
 }
 
-<h2>Список заявок</h2>
-<p>Всего заявок: @(Model.Count<Application>())</p>
+<h2>Список моїх заявок</h2>
+<p>Всього заявок: @(Model.Count<Application>())</p>
 <table>
 
     @foreach (var item in Model)
@@ -66,7 +66,7 @@
 
 
         <td>
-            @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+            @Html.ActionLink("Видалити", "Delete", new { id = item.Id })
         </td>
     </tr>
 

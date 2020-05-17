@@ -6,8 +6,8 @@
     int i = 0;
 }
 
-<h2>Изменить статус заявки</h2>
-<p>Всего заявок: @(Model.Count<Application>())</p>
+<h2>Змінити роль користувача</h2>
+<p>Всього користувачів: @(Model.Count<Application>())</p>
 <table>
 
     @foreach (var item in Model)
@@ -30,7 +30,7 @@
 
                 </td>
                 <td>
-                    <input type="submit" value="Изменить статус" />
+                    <input type="submit" value="Змінити роль" />
                 </td>
             }
         </tr>
