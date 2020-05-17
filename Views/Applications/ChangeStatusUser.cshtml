@@ -6,33 +6,34 @@
     int i = 0;
 }
 
-<h2>Змінити роль користувача</h2>
-<p>Всього користувачів: @(Model.Count<Application>())</p>
+<h2>Відхилені заявки</h2>
+<p>Всього заявок: @(Model.Count<Application>())</p>
 <table>
 
     @foreach (var item in Model)
     {
         i++;
-        <tr>
-            <td><b>@i</b></td>
+    <tr>
+        <td><b>@i</b></td>
 
 
 
-            @using (Html.BeginForm())
-            {
+        @using (Html.BeginForm())
+        {
+            <td>
+                @Html.Hidden("requestId", item.Id)
+
+                @if (item.Status == (int)Application.RequestStatus.Rejected)
+                {
+                    @Html.DropDownList("status", new[] { new SelectListItem() { Text = "Відкрита", Value = "1" } })
                 <td>
-                    @Html.Hidden("requestId", item.Id)
-                  
-                     @if (item.Status == (int)Application.RequestStatus.Rejected)
-                    {
-                        @Html.DropDownList("status", new[] {  new SelectListItem() { Text = "Відкрита", Value = "1" } })
-                    }
+                    <input type="submit" value="Змінити статуc заявки" />
+                </td>
+                }
 
                 </td>
-                <td>
-                    <input type="submit" value="Змінити роль" />
-                </td>
+
             }
-        </tr>
+    </tr>
     }
 </table>

@@ -100,7 +100,7 @@ namespace BusinessTrip.Controllers
             Application request = _context.Application.Find(id);
             // получаем текущего пользователя
             User user = _context.User.Where(m => m.Email == HttpContext.User.Identity.Name).First();
-            if (request != null && request.UserId == user.Id && (request.Status==1||request.Status==4))
+            if (request != null && request.UserId == user.Id && request.Status!=2&&request.Status!=3)
             {
                 Lifecycle lifecycle = _context.Lifecycle.Find(request.LifecycleId);
                 _context.Lifecycle.Remove(lifecycle);
@@ -327,8 +327,52 @@ namespace BusinessTrip.Controllers
 
             return RedirectToAction("ChangeStatus");
         }
+        [HttpGet]
+       
+        public ActionResult ChangeStatusUser()
+        {
+            User user = _context.User.Where(m => m.Email == HttpContext.User.Identity.Name).FirstOrDefault();
 
-            private bool ApplicationExists(int id)
+            var requests = _context.Application.Where(r => r.UserId == user.Id) //получаем заявки для текущего пользователя
+
+                                    .Include(r => r.Lifecycle)  // добавляем жизненный цикл заявок
+                                    .Include(r => r.User)
+                                    .Where(r => r.Status != (int)RequestStatus.Closed)// добавляем данные о пользователях
+                                    .OrderByDescending(r => r.Lifecycle.Opened); // упорядочиваем по дате по убыванию   
+
+            return View(requests.ToList());
+        }
+
+        [HttpPost]
+
+        public ActionResult ChangeStatusUser(int requestId, int status)
+        {
+            User user = _context.User.Where(m => m.Email == HttpContext.User.Identity.Name).First();
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            Application req = _context.Application.Find(requestId);
+            if (req != null && req.Status!=1&&req.Status!=2&&req.Status!=3)
+            {
+                req.Status = status;
+                Lifecycle lifecycle = _context.Lifecycle.Find(req.LifecycleId);
+
+                if (status == (int)RequestStatus.Open)
+                {
+                    lifecycle.Checking = DateTime.Now;
+                }
+               
+                _context.Entry(lifecycle).State = EntityState.Modified;
+                _context.Entry(req).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("ChangeStatusUser");
+        }
+
+        private bool ApplicationExists(int id)
         {
             return _context.Application.Any(e => e.Id == id);
         }
