@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "en61v1kLG8Na6tV1C0Lr9a5qqP8QFHYBPRB1ENR9drUwPC6rKvfn+2BIWHVvUOA6CdpfVa1pa3zQn1YPa1CfTg==",
+  "dgSpecHash": "A4IXTTbQQ3kRu2j+1Jko4+U6t8crhEaGHRB1QKK/os/QIp5k7McZu9U96eYhkZvb1QYvWy4jDbXio1oxL6B5tQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dell\\Desktop\\CustomIdentityApp\\BusinessTrip\\BusinessTrip.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\dinktopdf\\1.0.8\\dinktopdf.1.0.8.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\entityframeworkcore.diagrams\\0.4.2\\entityframeworkcore.diagrams.0.4.2.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\itextsharp\\5.5.13.1\\itextsharp.5.5.13.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.0.1\\microsoft.aspnetcore.antiforgery.2.0.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.0.1\\microsoft.aspnetcore.authentication.abstractions.2.0.1.nupkg.sha512",
@@ -46,6 +47,7 @@
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.responsecaching.abstractions\\2.0.1\\microsoft.aspnetcore.responsecaching.abstractions.2.0.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.routing\\2.0.1\\microsoft.aspnetcore.routing.2.0.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\2.0.1\\microsoft.aspnetcore.routing.abstractions.2.0.1.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.staticfiles\\1.1.1\\microsoft.aspnetcore.staticfiles.1.1.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

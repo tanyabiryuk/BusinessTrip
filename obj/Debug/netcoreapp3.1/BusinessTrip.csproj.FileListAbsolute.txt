@@ -1278,9 +1278,6 @@ C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\bin\Debug\netcoreapp3.1\run
 C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.csprojAssemblyReference.cache
-C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.csproj.CoreCompileInputs.cache
-C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.RazorAssemblyInfo.cache
 C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.RazorAssemblyInfo.cs
 C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.AssemblyInfoInputs.cache
@@ -1326,3 +1323,7 @@ C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\Bus
 C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.pdb
 C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.genruntimeconfig.cache
 C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\Razor\Views\Applications\Edit.cshtml.g.cs
+C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\bin\Debug\netcoreapp3.1\EntityFrameworkCore.Diagrams.dll
+C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Dell\Desktop\CustomIdentityApp\BusinessTrip\obj\Debug\netcoreapp3.1\BusinessTrip.MvcApplicationPartsAssemblyInfo.cache

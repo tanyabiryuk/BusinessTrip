@@ -17,33 +17,40 @@
 <section>
     <h2>Відхилені заявки</h2>
     <p>Всього заявок: @(Model.Count<Application>())</p>
-    <table>
-
-        @foreach (var item in Model)
+    
+        @if (Model.Where(item => item.Status != (int)Application.RequestStatus.Rejected).Count() == 0)
         {
-            i++;
-            <tr>
-                <td><b>@i</b></td>
-
-
-
-                @using (Html.BeginForm())
-                {
-                    <td>
-                        @Html.Hidden("requestId", item.Id)
-
-                        @if (item.Status == (int)Application.RequestStatus.Rejected)
-                        {
-                            @Html.DropDownList("status", new[] { new SelectListItem() { Text = "Відкрита", Value = "1" } })
-                        <td>
-                            <input type="submit" value="Змінити статуc заявки" />
-                        </td>
-                    }
-
-                        </td>
-
-                    }
-            </tr>
+            <h3>У вас немає відхилених заявок</h3>
         }
-    </table>
+        else
+        {<table>
+
+    
+    @foreach (var item in Model.Where(item => item.Status != (int)Application.RequestStatus.Rejected))
+    {
+        i++;
+        <tr>
+            <td><b>@i</b></td>
+
+
+
+            @using (Html.BeginForm())
+            {
+                <td>
+                    @Html.Hidden("requestId", item.Id)
+
+                    @if (item.Status == (int)Application.RequestStatus.Rejected)
+                    {
+                        @Html.DropDownList("status", new[] { new SelectListItem() { Text = "Відкрита", Value = "1" } })
+                    <td>
+                        <input type="submit" value="Змінити статуc заявки" />
+                    </td>
+                    }
+
+                    </td>
+
+            }
+        </tr>
+    }
+</table>}
 </section>

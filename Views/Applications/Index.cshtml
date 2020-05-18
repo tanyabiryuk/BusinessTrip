@@ -17,7 +17,7 @@
 <section>
     <h2>Список моїх заявок</h2>
     <p>Всього заявок: @(Model.Count<Application>())</p>
-    <a class="btn" asp-action="Index" asp-controller="Applications">Відхилені заявки</a>
+    <a class="btn" asp-action="ChangeStatusUser" asp-controller="Applications">Відхилені заявки</a>
     <table>
 
         @foreach (var item in Model)
@@ -67,7 +67,7 @@
                 <td>
                     <div>
                         <a class="openDialog" data-dialog-id="lifecycleDialog" data-dialog-title="Життєвий цикл заявки"
-                           href="Lifecycle/@item.LifecycleId">
+                           href="Applications/Lifecycle/@item.LifecycleId">
 
                             <img src="~/Content/pictures/lifecycle.png" class="tdImage" title="Життєвий цикл заявки" />
 

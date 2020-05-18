@@ -2,30 +2,49 @@
 @{
     Layout = null;
 }
-@using System.Security.Claims
-@using System.Linq;
-@{
-    ViewData["Title"] = "Редагувати";
-    if (((ClaimsIdentity)User.Identity).Claims
-                    .Where(c => c.Type == ClaimTypes.Role)
-                    .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
-    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
-}
-<div>
-    <p align="right">Ректору</p>
-    <p align="right">Львівського національного</p>
-    <p align="right">університету</p>
-    <p align="right">імені Івана Франка</p>
-    <p align="right">проф. Мельнику В. П. </p>
-    <p align="right">@Html.DisplayFor(m => m.Main_place_of_work)</p>
-    <p align="right">@Html.DisplayFor(m => m.Position_in_combination) </p>
-    <p align="right">@Html.DisplayFor(m => m.Fullname) </p>
-    <p align="center">Заява</p>
-    <p align="center">
-        Прошу вас відрядити мене @Html.DisplayFor(m => m.Saving_salary) y @Html.DisplayFor(m => m.Trip_city) з
-        метою @Html.DisplayFor(m => m.Purpose)
-    </p>
+<style>
+    .page pre, .page p {
+        font-size: 30px;
+        font-family: 'Times New Roman';
+    }
 
-    <td>
-    </td>
-</div>
+    .right {
+        margin-left: 1100px;
+    }
+</style>
+
+
+
+<section class="page">
+    <div class="right">
+        <p>Ректору</p>
+        <p>Львівського національного</p>
+        <p>університету</p>
+        <p>імені Івана Франка</p>
+        <p>проф. Мельнику В. П. </p>
+        <br />
+        <p>@Html.DisplayFor(m => m.Main_place_of_work)</p>
+        <p>@Html.DisplayFor(m => m.Position_in_combination) </p>
+        <p>@Html.DisplayFor(m => m.Fullname)</p>
+        </div>
+    <div>
+        <p align="center">Заява</p>
+        <p style="margin-left:20px">
+            Прошу вас відрядити мене @Html.DisplayFor(m => m.Saving_salary) y @Html.DisplayFor(m => m.Institution), @Html.DisplayFor(m => m.InstitutionLocation) з метою @Html.DisplayFor(m => m.Purpose) терміном на @Html.DisplayFor(m => (m.End_date - m.Start_date).Days) з @Html.DisplayFor(m => m.Start_date) по @Html.DisplayFor(m => m.End_date).
+        </p>
+        <br />
+        <p>@Html.DisplayFor(m => m.Payment).</p>
+        <br />
+        <pre>Транспорт: @Html.DisplayFor(m=>m.App_transport_Id)</pre>
+        <pre>Маршрут руху: @Html.DisplayFor(m=>m.Itinerary)</pre>
+        <pre>Підстава: @Html.DisplayFor(m=>m.App_fundation_Id)</pre>
+        <br />
+        <br />
+        <br />
+        <pre>Дата                                                                                                                                        Підпис</pre><br/>
+        <pre>ВК до наказу_______________________                   ______________________                __________________________</pre>
+        <div>
+        <pre style="margin-top:-10px"><sup><sup><sup>Підпис профільного проректора/ректора</sup></sup></sup>                                                    <sup><sup><sup>дата</sup></sup></sup>                                           <sup></sup><sup><sup>Розшифровка підпису</sup></sup></sup></pre>
+        </div>
+        </div>
+</section>

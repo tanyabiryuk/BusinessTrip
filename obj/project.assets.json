@@ -42,6 +42,86 @@
           "buildTransitive/netcoreapp3.0/EntityFramework.targets": {}
         }
       },
+      "EntityFrameworkCore.Diagrams/0.4.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "1.1.2",
+          "Microsoft.AspNetCore.StaticFiles": "1.1.1",
+          "Microsoft.EntityFrameworkCore": "1.1.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.1",
+          "Microsoft.Extensions.FileProviders.Physical": "1.1.1",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/netstandard1.6/EntityFrameworkCore.Diagrams.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/EntityFrameworkCore.Diagrams.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/3rdpartylicenses.txt": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/MaterialIcons-Regular.012cf6a10129e2275d79.woff": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/MaterialIcons-Regular.570eb83859dc23dd0eec.woff2": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/MaterialIcons-Regular.a37b0c01c0baf1888ca8.ttf": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/MaterialIcons-Regular.e79bfd88537def476913.eot": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/favicon.ico": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/index.html": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/inline.764ea7e8f233c3a6809b.bundle.js": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/main.d0329d265059e3e55cc6.bundle.js": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/polyfills.0963b44a58b5526cfab7.bundle.js": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/styles.20f9545db506af88f79c.bundle.css": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/vendor.fa09c1316e94520ecd3d.bundle.js": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
       "iTextSharp/5.5.13.1": {
         "type": "package",
         "compile": {
@@ -604,6 +684,23 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Routing.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.StaticFiles/1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "1.1.1",
+          "Microsoft.AspNetCore.Http.Extensions": "1.1.1",
+          "Microsoft.Extensions.FileProviders.Abstractions": "1.1.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.1.1",
+          "Microsoft.Extensions.WebEncoders": "1.1.1",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.StaticFiles.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.StaticFiles.dll": {}
         }
       },
       "Microsoft.AspNetCore.WebUtilities/2.2.0": {
@@ -3612,6 +3709,43 @@
         "tools/netcoreapp3.0/any/ef6.runtimeconfig.json"
       ]
     },
+    "EntityFrameworkCore.Diagrams/0.4.2": {
+      "sha512": "f6q45V85jnJmnIS5YfetlynNmiWiekZruQ/TnMY87GXlLuU0bVZGMSe65CpZaow35sGSzm2xjtJKYhfvrGiKYQ==",
+      "type": "package",
+      "path": "entityframeworkcore.diagrams/0.4.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/wwwroot/db-diagrams/3rdpartylicenses.txt",
+        "content/wwwroot/db-diagrams/MaterialIcons-Regular.012cf6a10129e2275d79.woff",
+        "content/wwwroot/db-diagrams/MaterialIcons-Regular.570eb83859dc23dd0eec.woff2",
+        "content/wwwroot/db-diagrams/MaterialIcons-Regular.a37b0c01c0baf1888ca8.ttf",
+        "content/wwwroot/db-diagrams/MaterialIcons-Regular.e79bfd88537def476913.eot",
+        "content/wwwroot/db-diagrams/favicon.ico",
+        "content/wwwroot/db-diagrams/index.html",
+        "content/wwwroot/db-diagrams/inline.764ea7e8f233c3a6809b.bundle.js",
+        "content/wwwroot/db-diagrams/main.d0329d265059e3e55cc6.bundle.js",
+        "content/wwwroot/db-diagrams/polyfills.0963b44a58b5526cfab7.bundle.js",
+        "content/wwwroot/db-diagrams/styles.20f9545db506af88f79c.bundle.css",
+        "content/wwwroot/db-diagrams/vendor.fa09c1316e94520ecd3d.bundle.js",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/3rdpartylicenses.txt",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/MaterialIcons-Regular.012cf6a10129e2275d79.woff",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/MaterialIcons-Regular.570eb83859dc23dd0eec.woff2",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/MaterialIcons-Regular.a37b0c01c0baf1888ca8.ttf",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/MaterialIcons-Regular.e79bfd88537def476913.eot",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/favicon.ico",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/index.html",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/inline.764ea7e8f233c3a6809b.bundle.js",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/main.d0329d265059e3e55cc6.bundle.js",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/polyfills.0963b44a58b5526cfab7.bundle.js",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/styles.20f9545db506af88f79c.bundle.css",
+        "contentFiles/any/netstandard1.6/wwwroot/db-diagrams/vendor.fa09c1316e94520ecd3d.bundle.js",
+        "entityframeworkcore.diagrams.0.4.2.nupkg.sha512",
+        "entityframeworkcore.diagrams.nuspec",
+        "lib/netstandard1.6/EntityFrameworkCore.Diagrams.dll",
+        "lib/netstandard1.6/EntityFrameworkCore.Diagrams.xml"
+      ]
+    },
     "iTextSharp/5.5.13.1": {
       "sha512": "xqzsYEYW/nMDjCtAXM5cl9fWil/Ju3HEGbsmoTKtltJc3M/9HNJzg++bCIOHm5uZITvRmZJWMO+S2u1yNG0gQg==",
       "type": "package",
@@ -4136,6 +4270,21 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Routing.Abstractions.xml",
         "microsoft.aspnetcore.routing.abstractions.2.0.1.nupkg.sha512",
         "microsoft.aspnetcore.routing.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.StaticFiles/1.1.1": {
+      "sha512": "TSld1znNokVvfRtUHTpCy3tMdJ4wdWTnVOUpoDB23SvqNiP5sJB5Hn8ZdaolfPoDYeFCf9YRq4keo4Rj+cIy3g==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.staticfiles/1.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net451/Microsoft.AspNetCore.StaticFiles.dll",
+        "lib/net451/Microsoft.AspNetCore.StaticFiles.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.StaticFiles.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.StaticFiles.xml",
+        "microsoft.aspnetcore.staticfiles.1.1.1.nupkg.sha512",
+        "microsoft.aspnetcore.staticfiles.nuspec"
       ]
     },
     "Microsoft.AspNetCore.WebUtilities/2.2.0": {
@@ -10625,6 +10774,7 @@
     ".NETCoreApp,Version=v3.1": [
       "DinkToPdf >= 1.0.8",
       "EntityFramework >= 6.4.4",
+      "EntityFrameworkCore.Diagrams >= 0.4.2",
       "Microsoft.AspNetCore.Hosting >= 2.2.7",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.4",
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.4",
@@ -10679,6 +10829,10 @@
           "EntityFramework": {
             "target": "Package",
             "version": "[6.4.4, )"
+          },
+          "EntityFrameworkCore.Diagrams": {
+            "target": "Package",
+            "version": "[0.4.2, )"
           },
           "Microsoft.AspNetCore.Hosting": {
             "target": "Package",
