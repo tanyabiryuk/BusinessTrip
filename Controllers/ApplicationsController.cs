@@ -13,6 +13,7 @@ using static BusinessTrip.Models.Application;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using Rotativa.AspNetCore;
+using BusinessTrip.ViewModels;
 
 namespace BusinessTrip.Controllers
 {
@@ -232,12 +233,35 @@ namespace BusinessTrip.Controllers
             }
 
             var application = await _context.Application.FindAsync(id);
-            if (application == null)
+            EditApplicationViewModel model = new EditApplicationViewModel
             {
-                return NotFound();
-            }
-            ViewData["UserId"] = new SelectList(_context.User, "Id", "Id", application.UserId);
-            return View(application);
+                userId = application.UserId,
+                Id = application.Id,
+                Email = application.Email,
+                Fullname = application.Fullname,
+                Main_place_of_work = application.Main_place_of_work,
+                Position_in_combination = application.Position_in_combination,
+                Type = application.Type,
+                Purpose = application.Purpose,
+                Saving_salary = application.Saving_salary,
+                Trip_city = application.Trip_city,
+                Institution = application.Institution,
+                Start_date = application.Start_date,
+                End_date = application.End_date,
+                Itinerary = application.Itinerary,
+                App_transport = _context.Transport.Where(
+                    el => (from t in _context.App_Transport
+                           where t.ApplicationId == application.Id
+                           select t.TransportId).Contains(el.Id)).Select(t => t.TransportType).ToList(),
+                App_fundation = _context.Foundation.Where(
+                    el => (from f in _context.App_Fundation
+                           where f.ApplicationId == application.Id
+                           select f.FundationId).Contains(el.Id)).Select(f => f.Trip_Foundation).ToList(),
+                InstitutionLocation = application.InstitutionLocation,
+                Allfundations = new List<string> { "запрошення", "витяг з протоколу засідання Вченої Ради факультету", "рапорт проректора" },
+                Alltransports = new List<string> { "Залізничий", "Автомобільний", "Літак" }
+            };
+            return View(model);
         }
 
         // POST: Applications/Edit/5
@@ -245,36 +269,101 @@ namespace BusinessTrip.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,Email,Fullname,Main_place_of_work,Position_in_combination,Type,Purpose,Saving_salary,Trip_city,Trip_country,Institution,Start_date,End_date,Itinerary,App_transport_Id,Payment,App_fundation_Id,InstitutionLocation")] Application application)
-        {
-            if (id != application.Id)
+        public async Task<IActionResult> Edit(EditApplicationViewModel request,
+            List<string> Transport, string OtherTransport,
+            List<string> Foundation, string OtherFoundation)
+        {   // получаем текущего пользователя
+            Application app = _context.Application.Where(m => m.Id == request.Id).FirstOrDefault();
+            if (app == null)
             {
-                return NotFound();
+                return RedirectToAction("Index", "Applications");
             }
-
             if (ModelState.IsValid)
             {
-                try
+                //получаем время открытия
+                DateTime current = DateTime.Now;
+
+                string temp;
+                foreach (string f in Foundation)
                 {
-                    _context.Update(application);
-                    await _context.SaveChangesAsync();
+                    temp = f;
+                    if (f == "Інше") temp = OtherFoundation;
+                    if (!_context.Foundation.Select(n => n.Trip_Foundation).Contains(temp))
+                    {
+                        _context.Foundation.Add(new Foundation { Trip_Foundation = temp });
+                        _context.SaveChanges();
+                    }
+                    if (_context.App_Fundation.Where(af => af.ApplicationId == request.Id
+                     && af.FundationId == _context.Foundation.FirstOrDefault(f => f.Trip_Foundation == temp).Id).Count() == 0)
+                        _context.App_Fundation.Add(new App_Fundation
+                        {
+                            ApplicationId = request.Id,
+                            FundationId = _context.Foundation.FirstOrDefault(n => n.Trip_Foundation == temp).Id
+                        });
+                    _context.SaveChanges();
                 }
-                catch (DbUpdateConcurrencyException)
+
+                foreach (string t in Transport)
                 {
-                    if (!ApplicationExists(application.Id))
+                    temp = t;
+                    if (t == "Інше") temp = OtherTransport;
+                    if (!_context.Transport.Select(n => n.TransportType).Contains(temp))
                     {
-                        return NotFound();
+                        _context.Transport.Add(new Transport { TransportType = temp });
+                        _context.SaveChanges();
                     }
-                    else
-                    {
-                        throw;
-                    }
+                    if (_context.App_Transport.Where(at => at.ApplicationId == request.Id
+                     && at.TransportId == _context.Transport.FirstOrDefault(t => t.TransportType == temp).Id).Count() == 0)
+                        _context.App_Transport.Add(new App_Transport
+                        {
+                            ApplicationId = request.Id,
+                            TransportId = _context.Transport.FirstOrDefault(n => n.TransportType == temp).Id
+                        });
+                    _context.SaveChanges();
                 }
-                return RedirectToAction(nameof(Index));
+
+                app.Institution = request.Institution;
+                app.Email = request.Email;
+                app.End_date = request.End_date;
+                app.Fullname = request.Fullname;
+                app.InstitutionLocation = request.InstitutionLocation;
+                app.Itinerary = request.Itinerary;
+                app.Main_place_of_work = request.Main_place_of_work;
+                app.Payment = request.Payment;
+                app.Position_in_combination = request.Position_in_combination;
+                app.Purpose = request.Purpose;
+                app.Saving_salary = request.Saving_salary;
+                app.Start_date = request.Start_date;
+                app.Trip_city = request.Trip_city;
+                app.Trip_country = request.Trip_country;
+                app.App_fundation_Id = request.Id;
+
+                app.App_transport_Id = request.Id;
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        _context.Update(app);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!ApplicationExists(app.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return RedirectToAction("Index");
+                }
             }
-            ViewData["UserId"] = new SelectList(_context.User, "Id", "Id", application.UserId);
-            return View(application);
+            return RedirectToAction("Edit");
         }
+
         [HttpGet]
         [Authorize(Roles = "admin")]
         public ActionResult ChangeStatus()

@@ -18,7 +18,9 @@ namespace BusinessTrip.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy H:mm:ss}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public DateTime?  Rejected{ get; set; }
-  
+
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy H:mm:ss}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
         public DateTime? Checking { get; set; }
         // Дата закрытия
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy H:mm:ss}", ApplyFormatInEditMode = true)]

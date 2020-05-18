@@ -105,7 +105,7 @@ header {
 
 
 .logout {
-    background-color: darkcyan;
+    background-color: black;
     text-align: center;
     color: white;
     border: none;
@@ -118,9 +118,46 @@ header {
     text-decoration: none;
 }
 
-.textbox, .submit {
+.textbox, .dropdown{
     font-size: 20px;
 }
+
+.textbox{
+    background-color: transparent;
+    /*border:none;*/
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom-width:2px;
+    border-bottom-color:darkslategrey;
+    color:black;
+    width:300px;
+}
+
+.dropdown {
+    background-color: transparent;
+    /*border:none;*/
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-width: 2px;
+    border-bottom-color: darkslategrey;
+    color: black;
+    width: 100px;
+}
+
+    .dropdown:hover {
+        border-bottom-color: black;
+        border-bottom-width: 5px;
+        width: 110px;
+    }
+
+.textbox:hover{
+    border-bottom-color:black;
+    border-bottom-width:5px;
+    width:320px;
+}
+
 
 .checkbox {
     width: 25px;
@@ -128,6 +165,7 @@ header {
 }
 
 footer {
+    font-size:10px;
     margin-left: -2vw;
     width: 100vw;
     background-color: black;
@@ -139,17 +177,64 @@ footer {
     bottom: 0;
 }
 
+/*.img-btn{padding:15px;}*/
+
+/*.img-btn:hover{
+    font-size:120%;
+    padding:5px;
+}*/
+
+/*.tdImagel {
+    width: 5%;
+    height: 5%;
+    margin: 0.5%;
+}
+
+    .tdImagel:hover {
+        width: 6%;
+        height: 6%;
+        margin: 0.4%;
+    }
+
+.tdImage{
+    width:10%;
+    height:10%;
+    margin:1%;
+}
+
+.tdImage:hover {
+    width: 11%;
+    height: 11%;
+    margin: 0.5%;
+}*/
+
+title{
+    font-size:15px;
+    font:bold;
+    font:italic;
+    border-radius:5px;
+    padding:3px;
+}
+
+a {
+    color: black;
+}
+
+p a:hover{
+    color:darkslategrey;
+}
+
 div h2 {
     margin: 6%;
     text-align: center;
 }
 
-footer p {
+/*footer p {
     font-size: small;
     position: fixed;
     left: 0;
     bottom: 0;
-}
+}*/
 
 section h1, section h2, section h3, section h4, section h5, section label, section p {
     font-size: 25px;
@@ -163,8 +248,18 @@ section h1, section h2, section h3, section h4, section h5, section label, secti
     text-decoration: none;
 }
 
-.edit-btn {
-    background-color: darkolivegreen;
+.btn{
+    background-color: white;
+    border-radius:5px;
+    color:black;
+    font-size:20px;
+    font:bold;
+    padding:5px;
+    text-decoration:none;
+}
+
+.btn:hover{
+    font-size:23px;
 }
 
 .chpass-btn {
@@ -186,13 +281,39 @@ table, th, td {
 }
 
 /* Style the content */
+body {
+    background-image: url("../Content/pictures/background.jpg");
+}
+
+.select{
+    background-color:black;
+    color:white;
+}
 section {
     /*width: 80%;*/
     /*-webkit-flex: 3;
     -ms-flex: 3;
     flex: 3;*/
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: #f1f1f1;
-    padding: 7vw;
+    padding-top: 20%;
+    margin-top: 30px;
+    padding: 20px;
+    margin-left: 15%;
+    height: 100vh;
+    margin-right: 15%;
+    color: black;
+    background-color: rgba(255,255,255,0.7);
+    height: 100%;
+    box-sizing: border-box;
+    padding-bottom:30px;
 }
+
+/*.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /*white-space: nowrap;*/
+    /*line-height: 60px;*/ /* Vertically center the text there */
+    /*background-color:black;
+        }
+    */
+

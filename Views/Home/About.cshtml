@@ -2,7 +2,7 @@
 @using System.Linq;
 
 @{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "Хто ми";
 }
 <section>
     @if (User.Identity.IsAuthenticated)
@@ -12,6 +12,11 @@
                     .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
         else { Layout = "~/Views/Shared/_Layout.cshtml"; }
     }
-    <h1>Тут інформація про нас</h1>
+    <h1>Ми - BusinessTrip AppPlatform</h1>
+    <br/>
+    <p>
+        BusinessTrip є розробником електронних заявок.</p>
+        <p>Ми допомагаємо створити електронні заявки на відрядження та відстежувати їх цикл,<br\> щоб спростити життя нашим користувачам.
+    </p>
 </section>
 

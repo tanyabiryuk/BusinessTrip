@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3pn9sE0PwIYuP0E9DH1xQTDPV+1C4wKSQx0Fb3n8pC+gW4VrxeFDkzXnt3SGHjMytFB1scmg5vR/V9Bxkb6vdA==",
+  "dgSpecHash": "en61v1kLG8Na6tV1C0Lr9a5qqP8QFHYBPRB1ENR9drUwPC6rKvfn+2BIWHVvUOA6CdpfVa1pa3zQn1YPa1CfTg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dell\\Desktop\\BusinessTrip\\BusinessTrip\\BusinessTrip.csproj",
+  "projectFilePath": "C:\\Users\\Dell\\Desktop\\CustomIdentityApp\\BusinessTrip\\BusinessTrip.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\dinktopdf\\1.0.8\\dinktopdf.1.0.8.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",

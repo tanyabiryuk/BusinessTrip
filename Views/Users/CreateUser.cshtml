@@ -3,68 +3,84 @@
 @{
     ViewBag.Title = "Создание пользователя";
 }
-
-<h2>Создание нового пользователя</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-
-<fieldset>
-    <legend>Новий користувач</legend>
-    <div class="editor-label">
-        
-        <label asp-for="Email">Електронна адреса</label>
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.Email)
-        @Html.ValidationMessageFor(model => model.Email)
-    </div>
-
-    <div class="editor-label">
-        <label asp-for="LastName">Прізвище</label><br />
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.LastName)
-        @Html.ValidationMessageFor(model => model.LastName)
-    </div>
-    <div class="editor-label">
-        <label asp-for="FirstName">Ім'я</label><br />
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.FirstName)
-        @Html.ValidationMessageFor(model => model.FirstName)
-    </div>
-    <div class="editor-label">
-        <label asp-for="FatherName">По батькові</label>
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.FatherName)
-        @Html.ValidationMessageFor(model => model.FatherName)
-    </div>
-
-
-
-    <div class="editor-label">
-        <label asp-for="Password">Введіте пароль</label>
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.Password)
-        @Html.ValidationMessageFor(model => model.Password)
-    </div>
-
-
-
-    <div class="editor-label">
-        @Html.LabelFor(model => model.RoleId)
-    </div>
-    <div class="editor-field">
-        @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
-        @Html.ValidationMessageFor(model => model.RoleId)
-    </div>
-
-    <p>
-        <input type="submit" value="Добавить" />
-    </p>
-</fieldset>
+@using System.Security.Claims
+@using System.Linq;
+@{
+    ViewData["Title"] = "Редагувати";
+    if (((ClaimsIdentity)User.Identity).Claims
+                    .Where(c => c.Type == ClaimTypes.Role)
+                    .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
 }
+    <section>
+        <h2>Створення нового користувача</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+
+            <div>
+
+                <label asp-for="Email">Електронна адреса</label>
+            </div>
+            <div>
+                <input type="text" asp-for="@Model.Email" class="textbox">
+                @*@Html.EditorFor(model => model.Email)*@
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+
+            <div>
+                <label asp-for="LastName">Прізвище</label><br />
+            </div>
+            <div>
+                <input type="text" asp-for="@Model.LastName" class="textbox">
+                @*@Html.EditorFor(model => model.LastName)*@
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+            <div>
+                <label asp-for="FirstName">Ім'я</label><br />
+            </div>
+            <div>
+                <input type="text" asp-for="@Model.FirstName" class="textbox">
+                @*@Html.EditorFor(model => model.FirstName)*@
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+            <div>
+                <label asp-for="FatherName">По батькові</label>
+            </div>
+            <div>
+                <input type="text" asp-for="@Model.FatherName" class="textbox">
+                @*@Html.EditorFor(model => model.FatherName)*@
+                @Html.ValidationMessageFor(model => model.FatherName)
+            </div>
+
+
+
+            <div>
+                <label asp-for="Password">Введіте пароль</label>
+            </div>
+            <div>
+                <input type="text" asp-for="@Model.Password" class="textbox">
+                @*@Html.EditorFor(model => model.Password)*@
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+
+
+
+            <div>
+                @Html.LabelFor(model => model.RoleId)
+            </div>
+            <div>
+                @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList, new { @class = "dropdown" })
+                @Html.ValidationMessageFor(model => model.RoleId)
+            </div>
+
+            <p>
+                <input class="btn" type="submit" value="Додати користувача" />
+            </p>
+        }
+        <br />
+        <br />
+        <br />
+    </section>
+

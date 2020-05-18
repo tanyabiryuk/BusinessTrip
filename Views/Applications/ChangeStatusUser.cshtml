@@ -1,4 +1,12 @@
-﻿
+﻿@using System.Security.Claims
+@using System.Linq;
+@{
+    ViewData["Title"] = "Редагувати";
+    if (((ClaimsIdentity)User.Identity).Claims
+                    .Where(c => c.Type == ClaimTypes.Role)
+                    .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
+}
 @model IEnumerable<Application>
 @using BusinessTrip.Models
 @{
@@ -6,34 +14,36 @@
     int i = 0;
 }
 
-<h2>Відхилені заявки</h2>
-<p>Всього заявок: @(Model.Count<Application>())</p>
-<table>
+<section>
+    <h2>Відхилені заявки</h2>
+    <p>Всього заявок: @(Model.Count<Application>())</p>
+    <table>
 
-    @foreach (var item in Model)
-    {
-        i++;
-    <tr>
-        <td><b>@i</b></td>
-
-
-
-        @using (Html.BeginForm())
+        @foreach (var item in Model)
         {
-            <td>
-                @Html.Hidden("requestId", item.Id)
+            i++;
+            <tr>
+                <td><b>@i</b></td>
 
-                @if (item.Status == (int)Application.RequestStatus.Rejected)
+
+
+                @using (Html.BeginForm())
                 {
-                    @Html.DropDownList("status", new[] { new SelectListItem() { Text = "Відкрита", Value = "1" } })
-                <td>
-                    <input type="submit" value="Змінити статуc заявки" />
-                </td>
-                }
+                    <td>
+                        @Html.Hidden("requestId", item.Id)
 
-                </td>
+                        @if (item.Status == (int)Application.RequestStatus.Rejected)
+                        {
+                            @Html.DropDownList("status", new[] { new SelectListItem() { Text = "Відкрита", Value = "1" } })
+                        <td>
+                            <input type="submit" value="Змінити статуc заявки" />
+                        </td>
+                    }
 
-            }
-    </tr>
-    }
-</table>
+                        </td>
+
+                    }
+            </tr>
+        }
+    </table>
+</section>

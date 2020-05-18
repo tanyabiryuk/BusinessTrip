@@ -1,7 +1,16 @@
-﻿
+﻿@using System.Security.Claims
+@using System.Linq;
+@{
+    ViewData["Title"] = "Редагувати";
+    if (((ClaimsIdentity)User.Identity).Claims
+                    .Where(c => c.Type == ClaimTypes.Role)
+                    .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+    else { Layout = "~/Views/Shared/_Layout.cshtml"; }
+}
 
 @model BusinessTrip.Models.Lifecycle
 
+<section>
     <div>
         <p><b>Заявка № @Html.DisplayFor(m => m.Id)</b></p>
         <p>Життєвий цикл</p>
@@ -12,3 +21,5 @@
         <p>Відхилено:  @Html.DisplayFor(m => m.Rejected)</p>
         <p>Закрита:  @Html.DisplayFor(m => m.Closed)</p>
     </div>
+</section>
+

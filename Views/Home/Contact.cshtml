@@ -5,14 +5,24 @@
     ViewData["Title"] = "Contact";
 }
 
-<section>
-    @if (User.Identity.IsAuthenticated)
-    {
-        if (((ClaimsIdentity)User.Identity).Claims
-                    .Where(c => c.Type == ClaimTypes.Role)
-                    .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
-        else { Layout = "~/Views/Shared/_Layout.cshtml"; }
-    }
-    <h1>Тут контакти (силка на ЛНУ)</h1>
-</section>
+    <section>
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (((ClaimsIdentity)User.Identity).Claims
+                        .Where(c => c.Type == ClaimTypes.Role)
+                        .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+            else { Layout = "~/Views/Shared/_Layout.cshtml"; }
+        }
+        <h1>BusinessTrip</h1>
+        <h3>Локація</h3>
+        <p>Нас можна знайти у головному корпусі ЛНУ ім. Івана франка за адресою:</p>
+        <pre>       вулиця Університетська, 1, Львів, Львівська область, 79000</pre>
+        <p>Якщо у вас виникли притензії до розробників, то не шукайте нас.</p>
+        <p>Даний проєкт створено з метою отримання заліку, тому багато старань в нього не вкладали.</p>
+        <p>Щодо питань співпраці, шукайте нас на факультеті прикладної математики та інформатики в ПМП 32.</p>
+        <p>Щодо решти питань звертайтесь в деканат або на сайт <a href="https://www.lnu.edu.ua/">ЛНУ ім. Івана Франка</a></p>
+        <br />
+        <br />
+        <br />
+    </section>
 

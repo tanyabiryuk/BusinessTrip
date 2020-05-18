@@ -1,5 +1,4 @@
-﻿@model BusinessTrip.Models.Application
-
+﻿@model BusinessTrip.ViewModels.EditApplicationViewModel
 @{
     ViewBag.Title = "Create";
 }
@@ -12,58 +11,43 @@
                     .Select(c => c.Value).Where(r => r == "admin").Count() != 0) { Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
     else { Layout = "~/Views/Shared/_Layout.cshtml"; }
 }
-<head>
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script>
-        function next(curDivId, nextDivId, answerVal) {
-            document.getElementById(curDivId).style.display = "none";
-            document.getElementById(nextDivId).style.display = "block"
-        }
-        function prev(curDivId, prevDivId, answerVal) {
-            document.getElementById(curDivId).style.display = "none";
-            document.getElementById(prevDivId).style.display = "block"
-        }
-    </script>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 
-    <style>
-        /*#q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10, #q11, #q12, #q13, #q14, #q15, #q16, #q17, #q18 {
-            display: none;
-        }*/
-        .textbox {
-            font-size: 20px;
-        }
+        <style>
+                /*#q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10, #q11, #q12, #q13, #q14, #q15, #q16, #q17, #q18 {
+                display: none;
+            }*/
+                .textbox {
+                    font-size: 20px;
+                }
 
-        .textbox {
-            background-color: transparent;
-            /*border:none;*/
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            border-bottom-width: 2px;
-            border-bottom-color: darkslategrey;
-            color: black;
-            width: 300px;
-        }
-            .textbox:hover {
-                border-bottom-color: black;
-                border-bottom-width: 5px;
-                width: 320px;
-            }
-    </style>
+                .textbox {
+                    background-color: transparent;
+                    /*border:none;*/
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-bottom-width: 2px;
+                    border-bottom-color: darkslategrey;
+                    color: black;
+                    width: 300px;
+                }
 
-</head>
-
-
-
-
+                    .textbox:hover {
+                        border-bottom-color: black;
+                        border-bottom-width: 5px;
+                        width: 320px;
+                    }
+        </style>
+    </head>
 <section>
-    <h1>Заявка на відрядження</h1>
+    <h1>Редагування</h1>
 
     @using (Html.BeginForm())
     {
         <div>
-            <h4></h4>
-            <hr />
+            <h4>Відрядження до @Model.Institution</h4>
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             <div class="form-group">
@@ -74,40 +58,40 @@
                 </div>
             </div>
 
-            <br /><hr />
+            <br />
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Fullname, "1. Ваше прізвище, ім'я, по- батькові (в родовому відмінку)")
+                @Html.LabelFor(model => model.Fullname, "Ваше прізвище, ім'я, по- батькові (в родовому відмінку)")
                 <div>
                     @Html.EditorFor(model => model.Fullname, new { @class = "textbox" })
                     @Html.ValidationMessageFor(model => model.Fullname, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <br /><hr />
+            <br />
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Main_place_of_work, "2.Вкажіть підрозділ та посаду за основним місцем праці")
+                @Html.LabelFor(model => model.Main_place_of_work, "Вкажіть підрозділ та посаду за основним місцем праці")
                 <div>
                     @Html.EditorFor(model => model.Main_place_of_work, new { @class = "textbox" })
                     @Html.ValidationMessageFor(model => model.Main_place_of_work, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <br /><hr />
+            <br />
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Position_in_combination, "3.Вкажіть відділ та посаду за сумісництвом (за наявності)")
+                @Html.LabelFor(model => model.Position_in_combination, "Вкажіть відділ та посаду за сумісництвом (за наявності)")
                 <div>
                     @Html.EditorFor(model => model.Position_in_combination, new { @class = "textbox" })
                     @Html.ValidationMessageFor(model => model.Position_in_combination, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <br /><hr />
+            <br />
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Type, "4. Вкажіть тип відрядження")
+                @Html.LabelFor(model => model.Type, "Вкажіть тип відрядження")
                 <div>
                     @Html.RadioButtonFor(model => model.Type, "Відрядження по Україні", new { onclick = "hideCountry()" })
                     <label>Відрядження по Україні</label>
@@ -129,36 +113,36 @@
                 </div>
             </div>
 
-            <br /><hr />
+            <br />
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Purpose, "4. Вкажіть мету відрядження")
+                @Html.LabelFor(model => model.Purpose, "Вкажіть мету відрядження")
                 <fieldset>
                     @Html.RadioButtonFor(model => model.Purpose, "З метою реалізації права на академічну мобільність відповідно до Постанови Кабінету Міністрів України від 12.08.2019 р. №579",
-                   new { onchange = "otherHide(this)" })
+new { onchange = "otherHide(this)" })
                     <label>З метою реалізації права на академічну мобільність відповідно до Постанови Кабінету Міністрів України від 12.08.2019 р. №579</label>
                     <br />
                     @Html.RadioButtonFor(model => model.Purpose, "проходження стажування",
-                   new { onchange = "otherHide(this)" })
+new { onchange = "otherHide(this)" })
                     <label>проходження стажування</label>
                     <br />
                     @Html.RadioButtonFor(model => model.Purpose, "для викладу лекційного курсу",
-                   new { onchange = "otherHide(this)" })
+new { onchange = "otherHide(this)" })
                     <label>для викладу лекційного курсу</label>
                     <br />
                     @Html.RadioButtonFor(model => model.Purpose, "участь в проектній зустрічі",
-                   new { onchange = "otherHide(this)" })
+new { onchange = "otherHide(this)" })
                     <label>участь в проектній зустрічі</label>
                     <br />
                     @Html.RadioButtonFor(model => model.Purpose, "участь у тренінгу",
-                   new { onchange = "otherHide(this)" })
+new { onchange = "otherHide(this)" })
                     <label>участь у тренінгу</label>
                     <br />
                     @Html.RadioButtonFor(model => model.Purpose, "Інше",
-                   new { id = "r6" })
+new { id = "r6" })
                     <label for="otherAnswer">Інше:</label>
                     <div id="otherAnswer" style="display:none">
-                        @Html.EditorFor(model => model.Purpose, new { oninput = "otherRes(this)", @class = "textbox" })
+                        @Html.EditorFor(model => model.Purpose, new { oninput = "otherRes(this)", @class = "textbox"})
                     </div>
                 </fieldset>
                 <script type="text/javascript">
@@ -173,10 +157,10 @@
                 </script>
             </div>
 
-            <br /><hr />
+            <br />
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Saving_salary, "5. Вкажіть вид збереження заробітної плати")
+                @Html.LabelFor(model => model.Saving_salary, "Вкажіть вид збереження заробітної плати")
                 <fieldset>
                     @Html.RadioButtonFor(model => model.Saving_salary, "зі збереженням середньої зарплати за основним місце праці")
                     <label>зі збереженням середньої зарплати за основним місце праці</label>
@@ -189,36 +173,36 @@
                 </fieldset>
             </div>
 
-            <br /><hr />
+            <br />
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Trip_city, "6. Вкажіть місто відрядження ")
+                @Html.LabelFor(model => model.Trip_city, "Вкажіть місто відрядження ")
                 <div>
                     @Html.EditorFor(model => model.Trip_city, new { @class = "textbox" })
                     @Html.ValidationMessageFor(model => model.Trip_city, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <br /><hr />
+            <br />
             <div class="form-group" id="country" style="display:none">
-                @Html.LabelFor(model => model.Trip_country, "7. Вкажіть країну відрядження (для закордонного відрядження)")
+                @Html.LabelFor(model => model.Trip_country, "Вкажіть країну відрядження (для закордонного відрядження)")
                 <div>
                     @Html.EditorFor(model => model.Trip_country, new { @class = "textbox" })
                     @Html.ValidationMessageFor(model => model.Trip_country, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <br /><hr />
+            <br />
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Institution, "8. Вкажіть установу, куди відряджаєтесь")
+                @Html.LabelFor(model => model.Institution, "Вкажіть установу, куди відряджаєтесь")
                 <div>
                     @Html.RadioButtonFor(model => model.Institution, "Міністерство освіти і науки України",
-                   new { onchange = "otherInstHide()" })
+new { onchange = "otherInstHide()" })
                     <label>Міністерство освіти і науки України</label>
                     <br />
                     @Html.RadioButtonFor(model => model.Institution, "Інше",
-                   new { onchange = "otherInstShow()" })
+new { onchange = "otherInstShow()" })
                     <label for="otherInstitut">Інше:</label>
                     <div id="otherInstitut" style="display:none">
                         @Html.EditorFor(model => model.Institution, new { @class = "textbox" })
@@ -236,56 +220,61 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.InstitutionLocation, "8. Вкажіть адресу установи куди відряджаєтесь")
+                @Html.LabelFor(model => model.InstitutionLocation, "Вкажіть адресу установи куди відряджаєтесь")
                 <div>
                     @Html.EditorFor(model => model.InstitutionLocation, new { @class = "textbox" })
                     @Html.ValidationMessageFor(model => model.InstitutionLocation, "", new { @class = "text-danger" })
                 </div>
 
-                <br /><hr />
-
+                <br />
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Start_date, "9. Вкажіть дату початку відрядження")
+                    @Html.LabelFor(model => model.Start_date, "Вкажіть дату початку відрядження")
                     <div>
-                        @Html.TextBoxFor(model => model.Start_date, new { @type = "date", @class = "form-control datepicker" })
+                        @Html.TextBoxFor(model => model.Start_date, new { value = Model.Start_date, @type = "date", @class = "form-control datepicker" })
                         @Html.ValidationMessageFor(model => model.Start_date, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <br /><hr />
+                <br />
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.End_date, "10. Вкажіть дату завершення відрядження")
+                    @Html.LabelFor(model => model.End_date, "Вкажіть дату завершення відрядження")
                     <div>
-                        @Html.TextBoxFor(model => model.End_date, new { @type = "date", @class = "form-control datepicker" })
+                        @Html.TextBoxFor(model => model.End_date, new { value = Model.End_date, @type = "date", @class = "form-control datepicker" })
                         @Html.ValidationMessageFor(model => model.End_date, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <br /><hr />
+                <br />
 
                 <div class="form-group" id="way" style="display:none">
-                    @Html.LabelFor(model => model.Itinerary, "11. Вкажіть маршрут поїздки (для відряджень по Україні). Наприклад: Львів-Київ-Львів")
+                    @Html.LabelFor(model => model.Itinerary, "Вкажіть маршрут поїздки (для відряджень по Україні). Наприклад: Львів-Київ-Львів")
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Itinerary, new { @class = "textbox" })
                         @Html.ValidationMessageFor(model => model.Itinerary, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <br /><hr />
+                <br />
                 <div class="form-group" id="transport" style="display:none">
+
                     <Label>12. Вкажіть транспорт, яким будете подорожувати (для відряджень по Україні)</Label>
                     <div>
-                        <input type="checkbox" name="Transport" id="checkTransport1" value="Залізничий">
+                        <input type="checkbox" name="Transport" id="checkTransport1" value="Залізничий"
+                               @(Model.App_transport.Contains("Залізничний") ? "checked=\"checked\"" : "") />
                         <label for="checkTransport1">Залізничий</label><br>
-                        <input type="checkbox" name="Transport" id="checkTransport2" value="Автомобільний">
+                        <input type="checkbox" name="Transport" id="checkTransport2" value="Автомобільний"
+                               @(Model.App_transport.Contains("Автомобільний") ? "checked=\"checked\"" : "") />
                         <label for="checkTransport2">Автомобільний</label><br>
-                        <input type="checkbox" name="Transport" id="checkTransport3" value="Літак">
+                        <input type="checkbox" name="Transport" id="checkTransport3" value="Літак"
+                               @(Model.App_transport.Contains("Літак") ? "checked=\"checked\"" : "") />
                         <label for="checkTransport3">Літак</label><br>
-                        <input type="checkbox" name="Transport" id="checkTransport4" value="Інше">
+                        @{ var othert = Model.App_transport.Where(t => t != "Залізничний" && t != "Автомобільний" && t != "Літак");}
+                        <input type="checkbox" name="Transport" id="checkTransport4" value="Інше"
+                               @(othert.Count() != 0 ? "checked=\"checked\"" : "") />
                         <label for="checkTransport4">Інше:</label><br>
                         <div id="otherTransport" style="display:none">
-                            <input type="text" name="OtherTransport" class="textbox" />
+                            <input type="text" name="OtherTransport" value="@othert"  class="textbox"/>
                         </div>
                     </div>
                     <script type="text/javascript">
@@ -297,10 +286,10 @@
                     </script>
                 </div>
 
-                <br /><hr />
+                <br />
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Payment, "13. Вкажіть, як буде здійснюватись оплата видатків на відрядження")
+                    @Html.LabelFor(model => model.Payment, "Вкажіть, як буде здійснюватись оплата видатків на відрядження")
                     <div>
                         @Html.RadioButtonFor(model => model.Payment, "за власний кошт/ за рахунок приймаючої сторони",
                        new { onchange = "otherPaymentHide()" })
@@ -331,21 +320,26 @@
                     </div>
                 </div>
 
-                <br /><hr />
+                <br />
 
                 <div class="form-group">
-                    <label>14. Вкажіть підставу відрядження</label>
+                    <label>Вкажіть підставу відрядження</label>
                     <div>
-                        <input type="checkbox" name="Foundation" id="checkFoundation1" value="запрошення">
+                        <input type="checkbox" name="Foundation" id="checkFoundation1" value="запрошення"
+                               @(Model.App_fundation.Contains("запрошення") ? "checked=\"checked\"" : "") />
                         <label for="checkFoundation1">запрошення</label><br>
-                        <input type="checkbox" name="Foundation" id="checkFoundation2" value="витяг з протоколу засідання Вченої Ради факультету">
+                        <input type="checkbox" name="Foundation" id="checkFoundation2" value="витяг з протоколу засідання Вченої Ради факультету"
+                               @(Model.App_fundation.Contains("витяг з протоколу засідання Вченої Ради факультету") ? "checked=\"checked\"" : "") />
                         <label for="checkFoundation2">витяг з протоколу засідання Вченої Ради факультету</label><br>
-                        <input type="checkbox" name="Foundation" id="checkFoundation3" value="рапорт проректора">
+                        <input type="checkbox" name="Foundation" id="checkFoundation3" value="рапорт проректора"
+                               @(Model.App_fundation.Contains("рапорт проректора") ? "checked=\"checked\"" : "") />
                         <label for="checkFoundation3">рапорт проректора</label><br>
-                        <input type="checkbox" name="Foundation" id="checkFoundation4" value="Інше">
+                        @{ var otherf = Model.App_fundation.Where(t => t != "запрошення" && t != "витяг з протоколу засідання Вченої Ради факультету" && t != "рапорт проректора");}
+                        <input type="checkbox" name="Foundation" id="checkFoundation4" value="Інше"
+                               @(othert.Count() != 0 ? "checked=\"checked\"" : "") />/>
                         <label for="checkFoundation4">Інше:</label><br>
                         <div id="otherFoundation" style="display:none">
-                            <input type="text" name="OtherFoundation" , class="textbox" />
+                            <input type="text" name="OtherFoundation" value="@otherf" class="textbox"/>
                         </div>
                     </div>
 
@@ -358,22 +352,22 @@
                     </script>
                 </div>
 
-                <br /><hr />
+                <br />
 
                 <div class="form-group">
-                    <label>16. Про зміни у суттєвих умовах відрядження (дострокового повернення, зміні дати повернення) повідомити працівників відділу кадрів в найкоротший термін на електронну пошту vk101dok@gmail.com *</label>
+                    <label>Про зміни у суттєвих умовах відрядження (дострокового повернення, зміні дати повернення) повідомити працівників відділу кадрів в найкоротший термін на електронну пошту vk101dok@gmail.com *</label>
                     <div>
                         <input type="checkbox" id="acceptCheckBox" value="Зобов'язуюсь повідомити">
                         <label for="acceptCheckBox">Зобов'язуюсь повідомити</label><br>
                     </div>
                 </div>
 
-                <br /><hr />
+                <br />
 
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" asp-route="@Model" class="btn" />
+                        <input type="submit" asp-route="@Model" class="btn"/>
                     </div>
                 </div>
             </div>
@@ -382,7 +376,9 @@
             </div>
         </div>
     }
-    <br />
-    <br />
-    <br />
+    <br/>
+    <br/>
+    <br/>
+
 </section>
+

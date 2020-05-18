@@ -9,36 +9,51 @@
     else { Layout = "~/Views/Shared/_Layout.cshtml"; }
 }
 
-    <section>
-        <a class="edit-btn" asp-action="CreateUser">Створити нового користувача</a>
-        <a class="edit-btn" asp-action="EditRole">Редагувати ролі</a><br>
+    <section style="padding-top:5%">
+        <a class="btn" asp-action="CreateUser">Створити нового користувача</a>
+        <a class="btn" asp-action="EditRole">Редагувати ролі</a><br>
         <br>
         <table class="table">
-            <tr><th>Email</th><th>Прізвище</th><th>Ім'я</th><th>Побатькові</th><th>Пароль</th><th></th></tr>
+            <tr>
+                <th style="font-size:100%">Email</th>
+                <th style="font-size:100%">Прізвище</th>
+                <th style="font-size:100%">Ім'я</th>
+                <th style="font-size:100%">Побатькові</th>
+                <th style="font-size:100%">Пароль</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <hr />
             @foreach (var user in Model)
             {
                 <tr>
-                    <td>@user.Email</td>
-                    <td>@user.LastName</td>
-                    <td>@user.FirstName</td>
-                    <td>@user.FatherName</td>
-                    <td>@user.Password</td>
+                    <td style="font-size:95%">@user.Email</td>
+                    <td style="font-size:95%">@user.LastName</td>
+                    <td style="font-size:95%">@user.FirstName</td>
+                    <td style="font-size:95%">@user.FatherName</td>
+                    <td style="font-size:95%">@user.Password</td>
                     <td>
-                        <form asp-action="Delete" asp-route-id="@user.Id" method="post">
-                            <a asp-action="Edit" asp-route-id="@user.Id">
-                                <img src="~/Content/pictures/edit.png" class="tdImage" title="Редагувати дані користувача" />
-                            </a>
-                           
-                            <a  asp-action="ChangePassword" asp-route-id="@user.Id"> 
-                            <img src="~/Content/pictures/changePassword.png" class="tdImage" title="Змінити пароль" />
-                            </a>
-                           
-                            <button type="submit">
-                                <img src="~/Content/pictures/pngwing.com.png" class="tdImage" title="Видалити користувача" />
-                            </button>
-                        </form>
+                        <a asp-action="Edit" asp-route-id="@user.Id">
+                            <img src="~/Content/pictures/editApp.png" class="tdImagel" title="Редагувати дані користувача" />
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-action="ChangePassword" asp-route-id="@user.Id">
+                            <img src="~/Content/pictures/changePassword.png" class="tdImagel" title="Змінити пароль" />
+                        </a>
+                    <td />
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@user.Id">
+                            <img src="~/Content/pictures/deleteApp.png" class="tdImagel" title="Видалити користувача" />
+                        </a>
                     </td>
                 </tr>
+                <tr><td colspan="8"><hr /></td></tr>
+
             }
         </table>
+        <br />
+        <br />
+        <br />
     </section>

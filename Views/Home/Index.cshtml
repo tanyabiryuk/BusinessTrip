@@ -1,7 +1,7 @@
 ﻿@using System.Security.Claims
 @using System.Linq;
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "BusinessTrip";
 }
 
 <section>
@@ -15,9 +15,9 @@
 
     <body>
         <div class="text-center">
-            <h1 class="display-4">
+            <h1 class="display-4" style="font-size:200%">
                 <span>
-                    Your  <b>Business<i>Trip</i></b><br />application
+                    Create Your  <b>Business<i>Trip</i></b><br />application
                 </span>
             </h1>
 
@@ -28,8 +28,8 @@
                 онлайн всього за кілька хвилин.<br />
                 Тепер для цього не треба оббивати пороги університету.<br />
             </p><br />
-           
-            <a class="edit-btn" asp-action="Create" asp-controller="Applications">Розпочати</a>
+            <br/>
+            <a class="btn" asp-action="Create" asp-controller="Applications">Розпочати</a>
         </div>
     </body>
 </section>
